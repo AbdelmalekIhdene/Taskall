@@ -8,13 +8,20 @@ class Login extends React.Component {
 	}
 	render() {
 		return (
-			<GoogleLogin
-			clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
-			buttonText="Login"
-			onSuccess={this.responseGoogle}
-			/* onFailure={this.responseGoogle} */
-			cookiePolicy={'single_host_origin'}
-			/>
+			<React.Fragment>		
+				<div id="container-login">
+					<div id="title">
+						<i class="material-icons lock">lock</i>
+					</div>
+				</div>
+				<GoogleLogin
+				clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
+				buttonText="Login"
+				onSuccess={this.responseGoogle}
+				/* onFailure={this.responseGoogle} */
+				cookiePolicy={'single_host_origin'}
+				/>
+			</React.Fragment>
 		);
 	}
 }

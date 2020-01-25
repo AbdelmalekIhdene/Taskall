@@ -1,3 +1,12 @@
 #loginContainer {
-	color: red;
+	color: rgb(197, 125, 16);
+	background-color: whitesmoke;
+	position: relative;
+    top: 40%;
+    margin: auto;
+    width: 340px;
+    height: 445px;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 #00000033;
+    text-align: center;
 }

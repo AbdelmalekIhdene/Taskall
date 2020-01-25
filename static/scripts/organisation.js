@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import regeneratorRuntime from "regenerator-runtime";
 class Organisation extends React.Component {
 	constructor(props) {
 		super();
@@ -7,7 +8,8 @@ class Organisation extends React.Component {
 			user: null
 		};
 	}
-	componentDidMount() {
+	componentDidMount = async() => {
+		console.log("Hello, World!");
 		const userString = localStorage.getItem("taskall-user-information");
 		console.log(userString);
 		console.log(JSON.parse(localStorage.getItem("taskall-user-information")));
@@ -33,3 +35,4 @@ class Organisation extends React.Component {
 }
 export default Organisation;
 ReactDOM.render(<Organisation/>, document.getElementById("organisationContainer"));
+7

@@ -7,6 +7,7 @@
     "babelify": "^10.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-google-login": "^5.0.7"
+    "react-google-login": "^5.0.7",
+    "regenerator-runtime": "^0.13.3"
   }
 }
