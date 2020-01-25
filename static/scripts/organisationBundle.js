@@ -33107,7 +33107,7 @@ function (_React$Component) {
   _createClass(Organisation, [{
     key: "render",
     value: function render() {
-      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement("h1", null, "Hello, ", this.state.user.name) : _react["default"].createElement("h1", null, "Please login before accessing organisation"));
+      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement("h1", null, "Hello, ", this.state.user.profileObj.name) : _react["default"].createElement("h1", null, "Please login before accessing organisation"));
     }
   }]);
 
