@@ -1,12 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import GoogleLogin from 'react-google-login';
 class Login extends React.Component {
-	constructor(props) {
-		super(props);
+	responseGoogle(response) {
+		console.log(response);
 	}
 	render() {
 		return (
-			<h1>Hello, Login!</h1>
+			<GoogleLogin
+			clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
+			buttonText="Login"
+			onSuccess={this.responseGoogle}
+			onFailure={this.responseGoogle}
+			cookiePolicy={'single_host_origin'}
+			/>
 		);
 	}
 }
