@@ -32345,7 +32345,7 @@ function (_React$Component) {
       }, _react["default"].createElement("div", {
         id: "title"
       }, _react["default"].createElement("i", {
-        "class": "material-icons lock"
+        className: "material-icons lock"
       }, "lock"))), _react["default"].createElement(_reactGoogleLogin["default"], {
         clientId: "703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com",
         buttonText: "Login",

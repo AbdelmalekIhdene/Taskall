@@ -8,10 +8,10 @@ class Login extends React.Component {
 	}
 	render() {
 		return (
-			<React.Fragment>		
+			<React.Fragment>
 				<div id="container-login">
 					<div id="title">
-						<i class="material-icons lock">lock</i>
+						<i className="material-icons lock">lock</i>
 					</div>
 				</div>
 				<GoogleLogin
