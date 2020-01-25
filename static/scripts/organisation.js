@@ -5,8 +5,22 @@ class Organisation extends React.Component {
 	constructor(props) {
 		super();
 		this.state = {
-			user: null
-		};
+			user: null,
+			organisationNames: [
+				{
+					id: 0,
+					name: "Joseph's Dojo"
+				},
+				{
+					id: 1,
+					name: "Malek's Kingdom"
+				},
+				{
+					id: 2,
+					name: "GSoft HQ"
+				}
+			]
+		}
 	}
 	componentDidMount = async() => {
 		const userString = localStorage.getItem("taskall-user-information");
@@ -23,8 +37,34 @@ class Organisation extends React.Component {
 			<React.Fragment>
 				{
 					this.state.user !== null ?
-					<h1>Hello, {this.state.user.profileObj.name}</h1> :
-					<h1>Please login before accessing organisation</h1>
+					<React.Fragment>
+						<section id="organisationBox">
+							<h1>Hello, {this.state.user.profileObj.name}</h1> 
+							<section id="organisationAdd">
+								<input type="text"></input>
+								<button>Add Organisation</button>
+							</section>
+							<section id="organisationList">
+								{
+									this.state.organisationNames.map(organisation => {
+										return (
+											<React.Fragment key={organisation.id}>
+												<section id="organisationListElement">
+													<a>{organisation.name}</a>
+													<i className="material-icons delete">delete</i>
+												</section>
+												<div id="organisationListDivider"></div>
+											</React.Fragment>
+										);
+									})
+								}
+							</section>
+						</section>
+					</React.Fragment> :
+					<React.Fragment>
+						<h1>Please login before accessing organisation</h1>
+					</React.Fragment>
+
 				}
 			</React.Fragment>
 		);
