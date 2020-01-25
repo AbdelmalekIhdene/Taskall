@@ -9,8 +9,14 @@ class Organisation extends React.Component {
 	}
 	componentDidMount() {
 		const userString = localStorage.getItem("taskall-user-information");
+		console.log(userString);
+		console.log(JSON.parse(localStorage.getItem("taskall-user-information")));
+		console.log(JSON.parse(userString));
 		if(userString !== null) {
 			this.setState({user: JSON.parse(userString)});
+			console.log(userString);
+			console.log(JSON.parse(localStorage.getItem("taskall-user-information")));
+			console.log(JSON.parse(userString));
 		}
 	}
 	render() {
