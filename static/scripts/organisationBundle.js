@@ -32322,15 +32322,32 @@ function (_React$Component) {
   _inherits(Organisation, _React$Component);
 
   function Organisation(props) {
+    var _this;
+
     _classCallCheck(this, Organisation);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Organisation).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Organisation).call(this));
+    _this.state = {
+      user: null
+    };
+    return _this;
   }
 
   _createClass(Organisation, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var userString = localStorage.getItem("taskall-user-information");
+
+      if (userString !== null) {
+        this.setState({
+          user: JSON.parse(userString)
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement("h1", null, "Hello, Organisation!");
+      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement("h1", null, "Hello, ", this.state.user.Zi.profileObj.name) : _react["default"].createElement("h1", null, "Please login before accessing organisation"));
     }
   }]);
 

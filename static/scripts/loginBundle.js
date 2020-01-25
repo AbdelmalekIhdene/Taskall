@@ -32333,8 +32333,9 @@ function (_React$Component) {
 
   _createClass(Login, [{
     key: "responseGoogle",
-    value: function responseGoogle(response) {
-      console.log(response);
+    value: function responseGoogle(user) {
+      localStorage.setItem("taskall-user-information", JSON.stringify(user));
+      window.location.href = "./organisation";
     }
   }, {
     key: "render",
@@ -32342,8 +32343,9 @@ function (_React$Component) {
       return _react["default"].createElement(_reactGoogleLogin["default"], {
         clientId: "703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com",
         buttonText: "Login",
-        onSuccess: this.responseGoogle,
-        onFailure: this.responseGoogle,
+        onSuccess: this.responseGoogle
+        /* onFailure={this.responseGoogle} */
+        ,
         cookiePolicy: 'single_host_origin'
       });
     }

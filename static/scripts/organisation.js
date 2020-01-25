@@ -2,11 +2,26 @@ import React from "react";
 import ReactDOM from "react-dom";
 class Organisation extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
+		this.state = {
+			user: null
+		};
+	}
+	componentDidMount() {
+		const userString = localStorage.getItem("taskall-user-information");
+		if(userString !== null) {
+			this.setState({user: JSON.parse(userString)});
+		}
 	}
 	render() {
 		return (
-			<h1>Hello, Organisation!</h1>
+			<React.Fragment>
+				{
+					this.state.user !== null ?
+					<h1>Hello, {this.state.user.Zi.profileObj.name}</h1> :
+					<h1>Please login before accessing organisation</h1>
+				}
+			</React.Fragment>
 		);
 	}
 }
