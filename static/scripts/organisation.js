@@ -6,6 +6,7 @@ class Organisation extends React.Component {
 		super();
 		this.state = {
 			user: null,
+			currentOrganisationInput: "",
 			organisationNames: [
 				{
 					id: 0,
@@ -32,6 +33,40 @@ class Organisation extends React.Component {
 			this.setState({user: JSON.parse(userConst)});
 		}
 	}
+	handleOrganisationInputChange = (event) => {
+		this.setState({currentOrganisationInput: event.target.value});
+		console.log(event.target.value);
+	}
+
+	handleOrganisationAddClick = (event) => {
+		if(this.state.currentOrganisationInput.length > 0) {
+			let organisationNames = [...this.state.organisationNames];
+			let organisationNamesCount = organisationNames.length;
+			organisationNames.push({
+				id: organisationNamesCount,
+				name: this.state.currentOrganisationInput
+			});
+			this.setState({organisationNames: organisationNames});	
+		}
+	}	
+	handleOrganisationDelete = (event) => {
+		console.log("Hello, World!");
+		let organisationNames = [...this.state.organisationNames];
+		const index = event.target.getAttribute("organisation-id");
+		console.log(index);
+		if(confirm(`Are you sure you would like to delete the organisation ${this.state.organisationNames[index].name}?`)) {
+			if((index + 1) === organisationNames.length || organisationNames.length === 1) {
+				organisationNames.pop();
+			} else {
+				organisationNames.splice(index, 1);
+			}
+			for(var i = 0; i < organisationNames.length; i += 1) {
+				organisationNames[i].id = i;
+			}
+			this.setState({organisationNames: organisationNames});	
+		}
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -41,8 +76,8 @@ class Organisation extends React.Component {
 						<section id="organisationBox">
 							<h1>Hello, {this.state.user.profileObj.name}</h1> 
 							<section id="organisationAdd">
-								<input type="text"></input>
-								<button>Add Organisation</button>
+								<input type="text" onChange={this.handleOrganisationInputChange}></input>
+								<button onClick={this.handleOrganisationAddClick}>Add Organisation</button>
 							</section>
 							<section id="organisationList">
 								{
@@ -51,7 +86,7 @@ class Organisation extends React.Component {
 											<React.Fragment key={organisation.id}>
 												<section id="organisationListElement">
 													<a>{organisation.name}</a>
-													<i className="material-icons delete">delete</i>
+													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 												</section>
 												<div id="organisationListDivider"></div>
 											</React.Fragment>

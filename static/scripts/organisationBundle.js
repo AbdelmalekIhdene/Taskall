@@ -33030,6 +33030,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
@@ -33097,8 +33105,58 @@ function (_React$Component) {
       }, _callee);
     })));
 
+    _defineProperty(_assertThisInitialized(_this), "handleOrganisationInputChange", function (event) {
+      _this.setState({
+        currentOrganisationInput: event.target.value
+      });
+
+      console.log(event.target.value);
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleOrganisationAddClick", function (event) {
+      if (_this.state.currentOrganisationInput.length > 0) {
+        var organisationNames = _toConsumableArray(_this.state.organisationNames);
+
+        var organisationNamesCount = organisationNames.length;
+        organisationNames.push({
+          id: organisationNamesCount,
+          name: _this.state.currentOrganisationInput
+        });
+
+        _this.setState({
+          organisationNames: organisationNames
+        });
+      }
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleOrganisationDelete", function (event) {
+      console.log("Hello, World!");
+
+      var organisationNames = _toConsumableArray(_this.state.organisationNames);
+
+      var index = event.target.getAttribute("organisation-id");
+      console.log(index);
+
+      if (confirm("Are you sure you would like to delete the organisation ".concat(_this.state.organisationNames[index].name, "?"))) {
+        if (index + 1 === organisationNames.length || organisationNames.length === 1) {
+          organisationNames.pop();
+        } else {
+          organisationNames.splice(index, 1);
+        }
+
+        for (var i = 0; i < organisationNames.length; i += 1) {
+          organisationNames[i].id = i;
+        }
+
+        _this.setState({
+          organisationNames: organisationNames
+        });
+      }
+    });
+
     _this.state = {
       user: null,
+      currentOrganisationInput: "",
       organisationNames: [{
         id: 0,
         name: "Joseph's Dojo"
@@ -33116,13 +33174,18 @@ function (_React$Component) {
   _createClass(Organisation, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
         id: "organisationBox"
       }, _react["default"].createElement("h1", null, "Hello, ", this.state.user.profileObj.name), _react["default"].createElement("section", {
         id: "organisationAdd"
       }, _react["default"].createElement("input", {
-        type: "text"
-      }), _react["default"].createElement("button", null, "Add Organisation")), _react["default"].createElement("section", {
+        type: "text",
+        onChange: this.handleOrganisationInputChange
+      }), _react["default"].createElement("button", {
+        onClick: this.handleOrganisationAddClick
+      }, "Add Organisation")), _react["default"].createElement("section", {
         id: "organisationList"
       }, this.state.organisationNames.map(function (organisation) {
         return _react["default"].createElement(_react["default"].Fragment, {
@@ -33130,6 +33193,8 @@ function (_React$Component) {
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
         }, _react["default"].createElement("a", null, organisation.name), _react["default"].createElement("i", {
+          onClick: _this2.handleOrganisationDelete,
+          "organisation-id": organisation.id,
           className: "material-icons delete"
         }, "delete")), _react["default"].createElement("div", {
           id: "organisationListDivider"
