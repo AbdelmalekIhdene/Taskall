@@ -26,7 +26,7 @@ class Organisation extends React.Component {
 			<React.Fragment>
 				{
 					this.state.user !== null ?
-					<h1>Hello, {this.state.user.name}</h1> :
+					<h1>Hello, {this.state.user.profileObj.name}</h1> :
 					<h1>Please login before accessing organisation</h1>
 				}
 			</React.Fragment>
