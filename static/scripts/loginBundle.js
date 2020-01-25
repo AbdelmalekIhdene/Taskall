@@ -32294,6 +32294,8 @@ exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -32314,41 +32316,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-var Application =
+var Login =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(Application, _React$Component);
+  _inherits(Login, _React$Component);
 
-  function Application(props) {
-    _classCallCheck(this, Application);
+  function Login(props) {
+    _classCallCheck(this, Login);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Application).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Login).call(this, props));
   }
 
-  _createClass(Application, [{
+  _createClass(Login, [{
     key: "render",
     value: function render() {
-      return _react["default"].createElement("h1", null, "Hello, React!");
+      return _react["default"].createElement("h1", null, "Hello, Login!");
     }
   }]);
 
-  return Application;
+  return Login;
 }(_react["default"].Component);
 
-var _default = Application;
+var _default = Login;
 exports["default"] = _default;
 
-},{"react":10}],18:[function(require,module,exports){
-"use strict";
+_reactDom["default"].render(_react["default"].createElement(Login, null), document.getElementById("loginContainer"));
 
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-var _application = _interopRequireDefault(require("./application.js"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-_reactDom["default"].render(_react["default"].createElement(_application["default"], null), document.getElementById("application"));
-
-},{"./application.js":17,"react":10,"react-dom":7}]},{},[18]);
+},{"react":10,"react-dom":7}]},{},[17]);
