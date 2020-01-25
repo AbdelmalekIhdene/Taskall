@@ -14,13 +14,15 @@ class Login extends React.Component {
 						<i className="material-icons lock">lock</i>
 					</div>
 				</div>
-				<GoogleLogin
-				clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
-				buttonText="Login"
-				onSuccess={this.responseGoogle}
-				/* onFailure={this.responseGoogle} */
-				cookiePolicy={'single_host_origin'}
-				/>
+				<section id="Google-login">
+					<GoogleLogin
+					clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
+					buttonText="Login"
+					onSuccess={this.responseGoogle}
+					/* onFailure={this.responseGoogle} */
+					cookiePolicy={'single_host_origin'}
+					/>
+				</section>
 			</React.Fragment>
 		);
 	}

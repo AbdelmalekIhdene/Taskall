@@ -1,12 +1,37 @@
 #loginContainer {
-	color: gold;
-	background-color: whitesmoke;
-	position: relative;
-    top: 40%;
+    color: white;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+#Google-login {
+    align-self: center;
+
+}
+#container-login {
+    background-color: #FCFCFC;
+    position: relative;
+    top: 20%;
     margin: auto;
     width: 340px;
     height: 445px;
     border-radius: 0.35em;
-    box-shadow: 0 3px 10px 0 #00000033;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.25);
     text-align: center;
+}
+
+#title {
+    position: relative;
+    background-color: #DD575C;
+    width: 100%;
+    padding: 20px 0px;
+    border-top-left-radius: 0.22em;
+    border-top-right-radius: 0.22em;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lock {
+	position: relative;
+	top: 2px;
 }

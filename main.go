@@ -9,8 +9,8 @@ import (
 	"path"
 	"syscall"
 	"time"
+
 	"gopkg.in/natefinch/lumberjack.v2"
-	
 )
 
 func clean(srv *server, cancel context.CancelFunc) {
