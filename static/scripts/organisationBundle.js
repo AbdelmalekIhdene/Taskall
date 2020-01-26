@@ -33196,9 +33196,9 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
-      console.log(event);
-      localStorage.setItem("taskall-organisation", event.target.value); // window.location.href = "./dashboard";
+    _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (organisation) {
+      localStorage.setItem("taskall-organisation", organisation);
+      window.location.href = "./dashboard";
     });
 
     _this.state = {
@@ -33235,7 +33235,9 @@ function (_React$Component) {
           id: "organisationListElement"
         }, _react["default"].createElement("a", {
           key: organisation.id,
-          onClick: _this2.handleOrganisationRedirect
+          onClick: function onClick() {
+            return _this2.handleOrganisationRedirect(organisation.organisation);
+          }
         }, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
