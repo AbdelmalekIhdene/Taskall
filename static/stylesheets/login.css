@@ -21,6 +21,10 @@
 
 }
 
+#Google-login button {
+	width: 150px;
+}
+
 #container-login {
     background-color: #FCFCFC;
     position: relative;
