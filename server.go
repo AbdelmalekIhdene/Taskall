@@ -76,6 +76,26 @@ func (srv *server) RemoveOrganisation() http.HandlerFunc {
 	}
 }
 
+func (srv *server) AddOrganisation() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		name := r.Form.Get("name")
+		organisation := r.Form.Get("organisation")
+		requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s');", name, organisation)
+		log.Println(requestStr)
+		_, err = srv.DB.Query(requestStr)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
 type userOrganisationEntry struct {
 	Id           int    `json:"id"`
 	Name         string `json:"name"`
