@@ -84,7 +84,7 @@ class Organisation extends React.Component {
 	handleOrganisationRedirect = (event) => {
 		console.log(event.target.value);
 		localStorage.setItem("taskall-organisation", event.target.value);
-		window.location.href = "./dashboard";
+		// window.location.href = "./dashboard";
 	}
 	render() {
 		return (
