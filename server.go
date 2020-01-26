@@ -2,6 +2,8 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -51,6 +53,47 @@ func (srv *server) HandleStaticTemplate(paths ...string) http.HandlerFunc {
 		w.WriteHeader(http.StatusOK)
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
 		tpl.Execute(w, nil)
+	}
+}
+
+// func (srv *server) AddOrganisation() http.HandlerFunc {
+// 	return func(w http.ResponseWriter, r *http.Request) {
+// 		err := r.ParseForm()
+// 		if err != nil {
+// 			log.Println(err)
+// 			w.WriteHeader(http.StatusBadRequest)
+// 		}
+// 		name := r.Form.Get("name")
+// 		organisation := r.Form.Get("organisation")
+// 		row, err := srv.DB.Query("INSERT INTO ")
+// 		if err != nil {
+// 			log.Println(err)
+// 			w.WriteHeader(http.StatusBadRequest)
+// 		}
+// 		w.WriteHeader(http.StatusOK)
+// 	}
+// }
+
+func (srv *server) ShowOrganisations() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		name := r.Form.Get("name")
+		rows, err := srv.DB.Query("SELECT * FROM organisations WHERE name = $1;", name)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		v, err := json.Marshal(rows)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		w.WriteHeader(http.StatusOK)
+		fmt.Println(w, string(v))
 	}
 }
 
