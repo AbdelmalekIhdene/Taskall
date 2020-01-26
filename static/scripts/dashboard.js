@@ -5,48 +5,95 @@ class Dashboard extends React.Component {
 		super(props);
 		this.state = {
 			//user: null,
+<<<<<<< HEAD
 			selectedTask: 2,
 			userTasks: [
 				{
 					id: 0,
 					status: "In Progress",
+=======
+			selectedTask: 0,
+			userTasks: [
+				{
+					id: 0,
+					assignedBy: "Mark",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Finish dashboard",
 					message: "Finish the layout and interactivity",
 				},
 				{
 					id: 1,
+<<<<<<< HEAD
 					status: "Not yet started",
+=======
+					assignedBy: "Quinn",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Finish SQL",
 					status: "In Progress",
 					message: "Complete the dashboard and connect to front-end",
 				},
 				{
 					id: 2,
+<<<<<<< HEAD
 					status: "In Progress",
+=======
+					assignedBy: "Joseph",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Finish Login",
 					message: "Have Third-Party authentication working.",
 				},
 				{
 					id: 3,
+<<<<<<< HEAD
 					status: "In Progress",
+=======
+					assignedBy: "Joseph",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Finish Organization Layout",
 					message: "Finish the layout and interactivity.",
 				},
 				{
 					id: 4,
+<<<<<<< HEAD
 					status: "Not yet started",
+=======
+					assignedBy: "Dan",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Do Challenge",
 					message: "Ensure that we conform to the requrements.",
 				},
 				{
 					id: 5,
+<<<<<<< HEAD
 					status: "Not yet started",
+=======
+					assignedBy: "Mark",
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 					name: "Test finished product",
 					message: "Ensure it can be demoed.",
 				}
 			]
 		}
 	}
+
+	handleTaskDelete = (event) => {
+		console.log("Hello, World!");
+		let userTasks = [...this.state.userTasks];
+		const index = event.target.getAttribute("task-id");
+		console.log(index);
+		if(confirm(`Are you sure you would like to delete this task ${this.state.userTasks[index].name}?`)) {
+			if((index + 1) === userTasks.length || userTasks.length === 1) {
+				userTasks.pop();
+			} else {
+				userTasks.splice(index, 1);
+			}
+			for(var i = 0; i < userTasks.length; i += 1) {
+				userTasks[i].id = i;
+			}
+			this.setState({userTasks: userTasks});	
+		}
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -71,7 +118,11 @@ class Dashboard extends React.Component {
 											<React.Fragment key={task.id}>
 												<section id="taskListElement">
 													<a>{task.name}</a>
+<<<<<<< HEAD
 													<i className="material-icons delete">delete</i>
+=======
+													<i onClick={this.handleTaskDelete} task-id={task.id} className="material-icons delete">delete</i>
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 												</section>
 												<div className="taskListDivider"></div>
 											</React.Fragment>
@@ -79,7 +130,11 @@ class Dashboard extends React.Component {
 										</section>
 										<section id="selectedTaskElement">
 											<h1>{this.state.userTasks[this.state.selectedTask].name}</h1>
+<<<<<<< HEAD
 											<a>Status: {this.state.userTasks[this.state.selectedTask].status}</a>
+=======
+											<a>Assigned By: {this.state.userTasks[this.state.selectedTask].assignedBy}</a>
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 											<a>Details: {this.state.userTasks[this.state.selectedTask].message}</a>
 										</section>
 									</section>

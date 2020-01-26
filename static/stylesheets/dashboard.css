@@ -17,6 +17,15 @@ html, body {
 }
 
 #pageTitle {
+<<<<<<< HEAD
+=======
+	padding-top: 20px;
+	padding-left: 5px;
+	background-color: #DD575C;
+	color: whitesmoke;
+	border-top-left-radius: 0.35em;
+	border-top-right-radius: 0.35em;
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 	float: top;
 	text-align: left;
 	padding-bottom: 20px;
@@ -24,9 +33,17 @@ html, body {
 }
 
 #dashboardBox {
+<<<<<<< HEAD
 	display: flex;
 	text-align: center;
 	border: solid black 2px;
+=======
+	background-color: #FCFCFC;
+	display: flex;
+	text-align: center;
+	border-bottom-left-radius: 0.35em;
+	border-bottom-right-radius: 0.35em;
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 }
 
 #dashboardBox h1 {
@@ -37,12 +54,16 @@ html, body {
 /*#dashboardNavBar {
 	
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 #dashboardNavBar li a {
 	text-decoration: none;
 }*/
 
 #dashboardTaskList {
+<<<<<<< HEAD
 	border: solid black 2px;
 }
 
@@ -58,17 +79,58 @@ html, body {
 	flex: 1;
 	text-align: left;
 	padding: 5px;
+=======
+	border-bottom-left-radius: 0.35em;
+	background-color: rgb(75, 75, 75);
+}
+
+#taskListElement {
+	background-color: rgb(172, 172, 172);
+	display: flex;
+	font-family: 'Courier New', Courier, monospace;
+	justify-content: flex-end;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 0.35em;
+	/* display: flex;
+	justify-content: flex-end;
+	padding-top: 30px;
+	padding-bottom: 30px; */
+	/* padding: 5px 20px; */
+}
+
+#taskListElement a {
+	text-align: left;
+	flex: 1;
+	color: black;
+	font-family: 'Courier New', Courier, monospace;
+	text-decoration:none;
+	text-align: center;
+	align-self: left;
+	margin-top: 5px;
+	text-indent: 10%;
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 }
 
 #taskListElement i {
 	display: inline;
+<<<<<<< HEAD
 	padding-left: 50px;
+=======
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: flex-end;
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 }
 
 .taskListDivider {
 	width: 100%;
 	height: 1px;
+<<<<<<< HEAD
 	background: rgba(150, 150, 150, 1);
+=======
+	background: rgba(75, 75, 75);
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 }
 
 #selectedTaskElement {
@@ -77,5 +139,18 @@ html, body {
 	justify-content: top;
 	text-align: left;
 	padding: 20px;
+<<<<<<< HEAD
 	border: solid black 2px;
+=======
+	border-bottom-right-radius: 0.35em;
+	border-bottom-left-radius: 0.35em;
+	border-left: rgb(75, 75, 75);
+	border-left-width: 2px;
+	border: gray;
+	
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
+}
+
+#taskListDivider:last-child {
+	display: none;
 }

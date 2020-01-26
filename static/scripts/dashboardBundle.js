@@ -1,4 +1,5 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+<<<<<<< HEAD
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -304,6 +305,8 @@ exports["default"] = _default;
 _reactDom["default"].render(_react["default"].createElement(Dashboard, null), document.getElementById("dashboardContainer"));
 
 },{"react":11,"react-dom":8}],3:[function(require,module,exports){
+=======
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /*
 object-assign
 (c) Sindre Sorhus
@@ -395,7 +398,11 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
+<<<<<<< HEAD
 },{}],4:[function(require,module,exports){
+=======
+},{}],2:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -501,7 +508,11 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"./lib/ReactPropTypesSecret":5,"_process":1}],5:[function(require,module,exports){
+=======
+},{"./lib/ReactPropTypesSecret":3,"_process":17}],3:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -515,7 +526,11 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
+<<<<<<< HEAD
 },{}],6:[function(require,module,exports){
+=======
+},{}],4:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 /** @license React v16.12.0
  * react-dom.development.js
@@ -28314,7 +28329,11 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"_process":1,"object-assign":3,"prop-types/checkPropTypes":4,"react":11,"scheduler":16,"scheduler/tracing":17}],7:[function(require,module,exports){
+=======
+},{"_process":17,"object-assign":1,"prop-types/checkPropTypes":2,"react":9,"scheduler":14,"scheduler/tracing":15}],5:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /** @license React v16.12.0
  * react-dom.production.min.js
  *
@@ -28606,7 +28625,11 @@ xe,ye,Ca.injectEventPluginsByName,fa,Sc,function(a){ya(a,Rc)},cb,db,Pd,Ba,Sj,{cu
 (function(a){var b=a.findFiberByHostInstance;return ok(n({},a,{overrideHookState:null,overrideProps:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:Ea.ReactCurrentDispatcher,findHostInstanceByFiber:function(a){a=ic(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null},findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null}))})({findFiberByHostInstance:Fc,bundleType:0,version:"16.12.0",
 rendererPackageName:"react-dom"});var Dk={default:Ck},Ek=Dk&&Ck||Dk;module.exports=Ek.default||Ek;
 
+<<<<<<< HEAD
 },{"object-assign":3,"react":11,"scheduler":16}],8:[function(require,module,exports){
+=======
+},{"object-assign":1,"react":9,"scheduler":14}],6:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 'use strict';
 
@@ -28648,7 +28671,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"./cjs/react-dom.development.js":6,"./cjs/react-dom.production.min.js":7,"_process":1}],9:[function(require,module,exports){
+=======
+},{"./cjs/react-dom.development.js":4,"./cjs/react-dom.production.min.js":5,"_process":17}],7:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 /** @license React v16.12.0
  * react.development.js
@@ -30972,7 +30999,11 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"_process":1,"object-assign":3,"prop-types/checkPropTypes":4}],10:[function(require,module,exports){
+=======
+},{"_process":17,"object-assign":1,"prop-types/checkPropTypes":2}],8:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /** @license React v16.12.0
  * react.production.min.js
  *
@@ -30999,7 +31030,11 @@ b,c){return W().useImperativeHandle(a,b,c)},useDebugValue:function(){},useLayout
 if(null!=b){void 0!==b.ref&&(g=b.ref,l=J.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(k in b)K.call(b,k)&&!L.hasOwnProperty(k)&&(e[k]=void 0===b[k]&&void 0!==f?f[k]:b[k])}var k=arguments.length-2;if(1===k)e.children=c;else if(1<k){f=Array(k);for(var m=0;m<k;m++)f[m]=arguments[m+2];e.children=f}return{$$typeof:p,type:a.type,key:d,ref:g,props:e,_owner:l}},createFactory:function(a){var b=M.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.12.0",
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentDispatcher:I,ReactCurrentBatchConfig:{suspense:null},ReactCurrentOwner:J,IsSomeRendererActing:{current:!1},assign:h}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
+<<<<<<< HEAD
 },{"object-assign":3}],11:[function(require,module,exports){
+=======
+},{"object-assign":1}],9:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 'use strict';
 
@@ -31010,7 +31045,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"./cjs/react.development.js":9,"./cjs/react.production.min.js":10,"_process":1}],12:[function(require,module,exports){
+=======
+},{"./cjs/react.development.js":7,"./cjs/react.production.min.js":8,"_process":17}],10:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 /** @license React v0.18.0
  * scheduler-tracing.development.js
@@ -31437,7 +31476,11 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"_process":1}],13:[function(require,module,exports){
+=======
+},{"_process":17}],11:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /** @license React v0.18.0
  * scheduler-tracing.production.min.js
  *
@@ -31449,7 +31492,11 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
+<<<<<<< HEAD
 },{}],14:[function(require,module,exports){
+=======
+},{}],12:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 /** @license React v0.18.0
  * scheduler.development.js
@@ -32357,7 +32404,11 @@ exports.unstable_Profiling = unstable_Profiling;
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"_process":1}],15:[function(require,module,exports){
+=======
+},{"_process":17}],13:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 /** @license React v0.18.0
  * scheduler.production.min.js
  *
@@ -32381,7 +32432,11 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();i
 exports.unstable_wrapCallback=function(a){var b=R;return function(){var c=R;R=b;try{return a.apply(this,arguments)}finally{R=c}}};exports.unstable_getCurrentPriorityLevel=function(){return R};exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=L(N);return b!==Q&&null!==Q&&null!==b&&null!==b.callback&&b.startTime<=a&&b.expirationTime<Q.expirationTime||k()};exports.unstable_requestPaint=Z;exports.unstable_continueExecution=function(){T||S||(T=!0,f(X))};
 exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return L(N)};exports.unstable_Profiling=null;
 
+<<<<<<< HEAD
 },{}],16:[function(require,module,exports){
+=======
+},{}],14:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 'use strict';
 
@@ -32392,7 +32447,11 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"./cjs/scheduler.development.js":14,"./cjs/scheduler.production.min.js":15,"_process":1}],17:[function(require,module,exports){
+=======
+},{"./cjs/scheduler.development.js":12,"./cjs/scheduler.production.min.js":13,"_process":17}],15:[function(require,module,exports){
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
 (function (process){
 'use strict';
 
@@ -32403,4 +32462,351 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
+<<<<<<< HEAD
 },{"./cjs/scheduler-tracing.development.js":12,"./cjs/scheduler-tracing.production.min.js":13,"_process":1}]},{},[2]);
+=======
+},{"./cjs/scheduler-tracing.development.js":10,"./cjs/scheduler-tracing.production.min.js":11,"_process":17}],16:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Dashboard =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Dashboard, _React$Component);
+
+  function Dashboard(props) {
+    var _this;
+
+    _classCallCheck(this, Dashboard);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleTaskDelete", function (event) {
+      console.log("Hello, World!");
+
+      var userTasks = _toConsumableArray(_this.state.userTasks);
+
+      var index = event.target.getAttribute("task-id");
+      console.log(index);
+
+      if (confirm("Are you sure you would like to delete this task ".concat(_this.state.userTasks[index].name, "?"))) {
+        if (index + 1 === userTasks.length || userTasks.length === 1) {
+          userTasks.pop();
+        } else {
+          userTasks.splice(index, 1);
+        }
+
+        for (var i = 0; i < userTasks.length; i += 1) {
+          userTasks[i].id = i;
+        }
+
+        _this.setState({
+          userTasks: userTasks
+        });
+      }
+    });
+
+    _this.state = {
+      //user: null,
+      selectedTask: 0,
+      userTasks: [{
+        id: 0,
+        assignedBy: "Mark",
+        name: "Finish dashboard",
+        message: "Finish the layout and interactivity"
+      }, {
+        id: 1,
+        assignedBy: "Quinn",
+        name: "Finish SQL",
+        status: "In Progress",
+        message: "Complete the dashboard and connect to front-end"
+      }, {
+        id: 2,
+        assignedBy: "Joseph",
+        name: "Finish Login",
+        message: "Have Third-Party authentication working."
+      }, {
+        id: 3,
+        assignedBy: "Joseph",
+        name: "Finish Organization Layout",
+        message: "Finish the layout and interactivity."
+      }, {
+        id: 4,
+        assignedBy: "Dan",
+        name: "Do Challenge",
+        message: "Ensure that we conform to the requrements."
+      }, {
+        id: 5,
+        assignedBy: "Mark",
+        name: "Test finished product",
+        message: "Ensure it can be demoed."
+      }]
+    };
+    return _this;
+  }
+
+  _createClass(Dashboard, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboard"
+      }, _react["default"].createElement("h1", {
+        id: "pageTitle"
+      }, "Welcome to Your Dashboard"), _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboardBox"
+      }, _react["default"].createElement("section", {
+        id: "dashboardTaskList"
+      }, this.state.userTasks.map(function (task) {
+        return _react["default"].createElement(_react["default"].Fragment, {
+          key: task.id
+        }, _react["default"].createElement("section", {
+          id: "taskListElement"
+        }, _react["default"].createElement("a", null, task.name), _react["default"].createElement("i", {
+          onClick: _this2.handleTaskDelete,
+          "task-id": task.id,
+          className: "material-icons delete"
+        }, "delete")), _react["default"].createElement("div", {
+          className: "taskListDivider"
+        }));
+      })), _react["default"].createElement("section", {
+        id: "selectedTaskElement"
+      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, "Assigned By: ", this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, "Details: ", this.state.userTasks[this.state.selectedTask].message)))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
+    }
+  }]);
+
+  return Dashboard;
+}(_react["default"].Component);
+
+var _default = Dashboard;
+exports["default"] = _default;
+
+_reactDom["default"].render(_react["default"].createElement(Dashboard, null), document.getElementById("dashboardContainer"));
+
+},{"react":9,"react-dom":6}],17:[function(require,module,exports){
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+},{}]},{},[16]);
+>>>>>>> 2417971ca481a27247c7657e8b834e631df491e5
