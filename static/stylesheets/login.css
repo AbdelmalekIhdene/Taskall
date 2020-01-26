@@ -25,6 +25,10 @@
 	width: 150px;
 }
 
+#Google-login button span {
+	padding-left: 20px !important;
+}
+
 #container-login {
     background-color: #FCFCFC;
     position: relative;
