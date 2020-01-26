@@ -70,12 +70,17 @@ html, body {
 
 #organisationListElement a {
 	flex: 1;
+	color: black;
 	font-family: 'Courier New', Courier, monospace;
+	text-decoration:none;
 	text-align: center;
 	align-self: left;
 	margin-top: 5px;
 	text-indent: 10%;
 }
+a:hover {
+	font-size: 120%;
+  }
 
 #organisationListElement i {
 	display: inline;

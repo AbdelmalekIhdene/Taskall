@@ -33011,6 +33011,7 @@ function (_React$Component) {
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
         }, _react["default"].createElement("a", {
+          className: "organisationLink",
           href: "google.com"
         }, organisation.name), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
