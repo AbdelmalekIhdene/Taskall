@@ -2,7 +2,6 @@ package main
 
 import (
 	"database/sql"
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -74,6 +73,11 @@ func (srv *server) HandleStaticTemplate(paths ...string) http.HandlerFunc {
 // 	}
 // }
 
+type userOrganisationEntry struct {
+	Name         string
+	Organisation string
+}
+
 func (srv *server) ShowOrganisations() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		err := r.ParseForm()
@@ -84,7 +88,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 		}
 		name := r.Form.Get("name")
 		log.Println(name)
-		requestStr := fmt.Sprintf("SELECT * FROM organisations WHERE name = '%s';", name)
+		requestStr := fmt.Sprintf("SELECT organisation FROM organisations WHERE name = '%s';", name)
 		log.Println(requestStr)
 		rows, err := srv.DB.Query(requestStr)
 		if err != nil {
@@ -92,16 +96,25 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		log.Println(rows)
-		v, err := json.Marshal(rows)
-		if err != nil {
-			log.Println(err)
-			w.WriteHeader(http.StatusBadRequest)
-			return
+		var organisation string
+		var organisationEntries []userOrganisationEntry
+		defer rows.Close()
+		for rows.Next() {
+			err := rows.Scan(&organisation)
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusBadRequest)
+				return
+			}
+			organisationEntries =
+				append(organisationEntries,
+					userOrganisationEntry{
+						Name:         name,
+						Organisation: organisation,
+					})
 		}
+		log.Println(organisationEntries)
 		w.WriteHeader(http.StatusOK)
-		log.Println(string(v))
-		fmt.Println(w, string(v))
 	}
 }
 
