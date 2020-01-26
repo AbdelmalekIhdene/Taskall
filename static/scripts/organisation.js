@@ -77,7 +77,7 @@ class Organisation extends React.Component {
 			}
 			let userName = this.state.user.profileObj.name.replace(" ", "+");
 			let organisationName = this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
-			console.log(`https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName});
+			console.log(`https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`);
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 			this.setState({organisationNames: organisationNames});
 		}

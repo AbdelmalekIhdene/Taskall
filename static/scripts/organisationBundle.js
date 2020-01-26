@@ -33188,6 +33188,8 @@ function (_React$Component) {
 
         var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
 
+        console.log("https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName));
+
         _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
 
         _this.setState({
