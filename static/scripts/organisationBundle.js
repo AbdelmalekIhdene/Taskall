@@ -33197,7 +33197,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
-      localStorage.setItem("taskall-organisation", event.currentTarget.getAttribute('value'));
+      localStorage.setItem("taskall-organisation", event.currentTarget.value);
       window.location.href = "./dashboard";
     });
 
