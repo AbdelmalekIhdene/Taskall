@@ -33103,7 +33103,7 @@ function (_React$Component) {
 
               if (userString !== null) {
                 user = JSON.parse(userString);
-                assignee = user.profileObj.name;
+                assignee = user.profileObj.name.replace(" ", "+");
                 console.log("https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee));
                 assignee = assignee.replace(" ", "+");
 

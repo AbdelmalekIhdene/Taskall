@@ -75,7 +75,7 @@ class Dashboard extends React.Component {
 		console.log(organisationString);
 		if(userString !== null) {
 			const user = JSON.parse(userString);
-			let assignee = user.profileObj.name;
+			let assignee = user.profileObj.name.replace(" ", "+");
 			console.log(`https://abdelmalek.ihdene.com/taskall/showTasks?assignee=${assignee}`);
 			assignee = assignee.replace(" ", "+");
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/showTasks?assignee=${assignee}`,
