@@ -14,7 +14,7 @@ class Login extends React.Component {
 						<i className="material-icons lock">lock</i>
 					</div>
 						<section id="Taskall-name">
-							<p>Taskall</p>
+							<p>Welcome to Taskall</p>
 						</section>
 					<section id="Google-login">
 						<GoogleLogin

@@ -32348,7 +32348,7 @@ function (_React$Component) {
         className: "material-icons lock"
       }, "lock")), _react["default"].createElement("section", {
         id: "Taskall-name"
-      }, _react["default"].createElement("p", null, "Taskall")), _react["default"].createElement("section", {
+      }, _react["default"].createElement("p", null, "Welcome to Taskall")), _react["default"].createElement("section", {
         id: "Google-login"
       }, _react["default"].createElement(_reactGoogleLogin["default"], {
         clientId: "703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com",
