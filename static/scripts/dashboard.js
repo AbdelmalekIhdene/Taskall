@@ -127,6 +127,10 @@ class Dashboard extends React.Component {
 		console.log(this.state.currentTaskName);
 		console.log(this.state.currentAssignee);
 		console.log(this.state.currentDescription);
+		let userName = this.state.currentAssignee.replace(" ", "+");
+		let organisationName = this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
+		this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
+		this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 		if(this.state.currentAssignee === this.state.user.profileObj.name) {
 			let userTasks = [...this.state.userTasks];
 			let userTasksCount = userTasks.length;
@@ -138,10 +142,6 @@ class Dashboard extends React.Component {
 				message: this.state.currentDescription
 			});
 			this.setState({userTasks: userTasks});
-			let userName = this.state.currentAssignee.replace(" ", "+");
-			let organisationName = this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
-			// this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
-			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 		}
 	}
 
