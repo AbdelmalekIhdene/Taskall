@@ -24,10 +24,10 @@ html, body {
 #organisationAdd {
 	
 	display: flex;
-	padding-right: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	padding-top: 5px;
+	padding-right: 35px;
+	padding-bottom: 10px;
+	padding-left: 4px;
+	padding-top: 10px;
 	border-bottom-left-radius: 0.35em;
 	border-bottom-right-radius: 0.35em;
 }
@@ -50,14 +50,12 @@ html, body {
 
 #organisationAdd input {
 	flex: 1;
-	margin-right: 5px;
-	padding-right: 10px;
+	margin-right: 10px;
 }
 
 #organisationList {
 	/* Margin collapses, so you get 50 - 20 which is 30 */
 	background-color: rgb(75, 75, 75);
-	
 }
 
 #organisationListElement {
@@ -86,12 +84,6 @@ html, body {
 	justify-content: flex-end;
 }
 
-#organisationListElement j {
-	display: inline;
-	padding-left: 20px;
-	padding-right: 10px;
-	justify-content: flex-end;
-}
 
 #organisationListDivider {
 	width: 100%;

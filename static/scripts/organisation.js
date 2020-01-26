@@ -87,8 +87,8 @@ class Organisation extends React.Component {
 											return (
 												<React.Fragment key={organisation.id}>
 													<section id="organisationListElement">
-														<a>{organisation.name}</a>	
-														<j className="material-icons label">label</j>													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
+														<a className = "organisationLink" href = 'google.com'>{organisation.name}</a>	
+														<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 													</section>
 													<div id="organisationListDivider"></div>
 												</React.Fragment>

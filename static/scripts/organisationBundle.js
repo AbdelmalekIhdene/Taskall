@@ -33010,9 +33010,9 @@ function (_React$Component) {
           key: organisation.id
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
-        }, _react["default"].createElement("a", null, organisation.name), _react["default"].createElement("j", {
-          className: "material-icons label"
-        }, "label"), "             ", _react["default"].createElement("i", {
+        }, _react["default"].createElement("a", {
+          href: "google.com"
+        }, organisation.name), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
           className: "material-icons delete"
