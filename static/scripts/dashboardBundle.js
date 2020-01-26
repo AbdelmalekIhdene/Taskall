@@ -33218,7 +33218,7 @@ function (_React$Component) {
         }));
       })), this.state.userTasks.length > 0 ? _react["default"].createElement("section", {
         id: "selectedTaskElement"
-      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Assigned By:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Details:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].message), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Details:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].message)) : _react["default"].createElement("section", {
+      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Assigned By:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Details:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].message)) : _react["default"].createElement("section", {
         id: "selectedTaskElement"
       }, _react["default"].createElement("h1", {
         id: "noTaskLabel"
