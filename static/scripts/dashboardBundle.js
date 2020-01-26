@@ -33200,6 +33200,8 @@ function (_React$Component) {
 
       var assignee = _this.state.currentAssignee.replace(" ", "+").replace("#", "%23");
 
+      var description = _this.state.currentDescription.replace(" ", "+").replace("#", "%23");
+
       console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(name, "&organisation=").concat(organisationName)); // this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 
       _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(name, "&organisation=").concat(organisationName), function (instance, data) {});
