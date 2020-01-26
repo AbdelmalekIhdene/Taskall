@@ -83,6 +83,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			return
 		}
 		name := r.Form.Get("name")
+		log.Println(name)
 		rows, err := srv.DB.Query("SELECT * FROM organisations WHERE name = $1;", name)
 		if err != nil {
 			log.Println(err)
