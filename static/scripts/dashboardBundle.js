@@ -33206,11 +33206,10 @@ function (_React$Component) {
           userTasks: userTasks
         });
 
-        var userName = _this.state.user.profileObj.name.replace(" ", "+");
+        var userName = _this.state.currentAssignee.replace(" ", "+");
 
-        var organisationName = _this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
+        var organisationName = _this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23"); // this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 
-        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
 
         _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
       }
