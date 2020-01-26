@@ -33197,7 +33197,6 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
-      console.log(event.target.value);
       localStorage.setItem("taskall-organisation", event.target.value);
       window.location.href = "./dashboard";
     });
@@ -33234,7 +33233,8 @@ function (_React$Component) {
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
         }, _react["default"].createElement("a", {
-          onClick: _this2.handleOrganisationRedirect
+          onClick: _this2.handleOrganisationRedirect,
+          onChange: _this2.handleOrganisationRedirect.bind(_this2)
         }, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
