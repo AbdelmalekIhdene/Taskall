@@ -124,6 +124,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			return
 		}
 		log.Println(string(v))
+		fmt.Fprintln(w, string(v))
 		w.WriteHeader(http.StatusOK)
 	}
 }
