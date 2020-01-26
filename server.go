@@ -84,7 +84,9 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 		}
 		name := r.Form.Get("name")
 		log.Println(name)
-		rows, err := srv.DB.Query(fmt.Sprintf("SELECT * FROM organisations WHERE name = '%s';", name))
+		requestStr := fmt.Sprintf("SELECT * FROM organisations WHERE name = '%s';", name)
+		log.Println(requestStr)
+		rows, err := srv.DB.Query(requestStr)
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
