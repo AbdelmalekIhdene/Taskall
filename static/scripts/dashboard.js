@@ -6,6 +6,7 @@ class Dashboard extends React.Component {
 		this.state = {
 			//user: null,
 			selectedTask: 0,
+			currentTaskInput: "",
 			userTasks: [
 				{
 					id: 0,
