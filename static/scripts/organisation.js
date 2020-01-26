@@ -10,12 +10,12 @@ class Organisation extends React.Component {
 			organisationNames: []
 		}
 	}
-	AJAXRequest = (method, url, success) => {
+	AJAXRequest = (reference, method, url, success) => {
 		var xhr = new XMLHttpRequest();
 		xhr.open(method, url);
 		xhr.onreadystatechange = function() {
 			if(xhr.readyState > 3 && xhr.status == 200) {
-				success(xhr.responseText);
+				success(reference, xhr.responseText);
 			}
 		}
 		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -29,10 +29,10 @@ class Organisation extends React.Component {
 			let userName = user.profileObj.name;
 			userName = userName.replace(" ", "+");
 			console.log(`https://abdelmalek.ihdene.com/taskall/showOrganisations?name=${userName}`);
-			this.AJAXRequest("POST", `https://abdelmalek.ihdene.com/taskall/showOrganisations?name=${userName}`,
-			function(data){
+			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/showOrganisations?name=${userName}`,
+			function(instance, data){
 				console.log(data);
-				this.setState({organisationNames: JSON.parse(data)});
+				instance.setState({organisationNames: JSON.parse(data)});
 			});
 			this.setState({user: user});
 		} else {

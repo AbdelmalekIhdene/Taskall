@@ -33072,13 +33072,13 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Organisation).call(this));
 
-    _defineProperty(_assertThisInitialized(_this), "AJAXRequest", function (method, url, success) {
+    _defineProperty(_assertThisInitialized(_this), "AJAXRequest", function (reference, method, url, success) {
       var xhr = new XMLHttpRequest();
       xhr.open(method, url);
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState > 3 && xhr.status == 200) {
-          success(xhr.responseText);
+          success(reference, xhr.responseText);
         }
       };
 
@@ -33105,9 +33105,9 @@ function (_React$Component) {
                 userName = userName.replace(" ", "+");
                 console.log("https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName));
 
-                _this.AJAXRequest("POST", "https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName), function (data) {
+                _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName), function (instance, data) {
                   console.log(data);
-                  this.setState({
+                  instance.setState({
                     organisationNames: JSON.parse(data)
                   });
                 });
