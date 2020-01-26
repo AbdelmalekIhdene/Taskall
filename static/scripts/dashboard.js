@@ -12,48 +12,48 @@ class Dashboard extends React.Component {
 			currentDescription: "",
 			selectedTask: 0,
 			userTasks: [
-				{
-					id: 0,
-					assignedTo: "Mark",
-					assignedBy: "Mark",
-					name: "Finish dashboard",
-					message: "Finish the layout and interactivity",
-				},
-				{
-					id: 1,
-					assignedTo: "Mark",
-					assignedBy: "Quinn",
-					name: "Finish SQL",
-					message: "Complete the dashboard and connect to front-end",
-				},
-				{
-					id: 2,
-					assignedTo: "Mark",
-					assignedBy: "Joseph",
-					name: "Finish Login",
-					message: "Have Third-Party authentication working.",
-				},
-				{
-					id: 3,
-					assignedTo: "Mark",
-					assignedBy: "Joseph",
-					name: "Finish Organization Layout",
-					message: "Finish the layout and interactivity.",
-				},
-				{
-					id: 4,
-					assignedTo: "Mark",
-					assignedBy: "Dan",
-					name: "Do Challenge",
-					message: "Ensure that we conform to the requrements.",
-				},
-				{
-					id: 5,
-					assignedTo: "Mark",
-					assignedBy: "Mark",
-					name: "Test finished product",
-					message: "Ensure it can be demoed.",
-				}
+				// {
+				// 	id: 0,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Mark",
+				// 	name: "Finish dashboard",
+				// 	message: "Finish the layout and interactivity",
+				// },
+				// {
+				// 	id: 1,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Quinn",
+				// 	name: "Finish SQL",
+				// 	message: "Complete the dashboard and connect to front-end",
+				// },
+				// {
+				// 	id: 2,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Joseph",
+				// 	name: "Finish Login",
+				// 	message: "Have Third-Party authentication working.",
+				// },
+				// {
+				// 	id: 3,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Joseph",
+				// 	name: "Finish Organization Layout",
+				// 	message: "Finish the layout and interactivity.",
+				// },
+				// {
+				// 	id: 4,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Dan",
+				// 	name: "Do Challenge",
+				// 	message: "Ensure that we conform to the requrements.",
+				// },
+				// {
+				// 	id: 5,
+				// 	assignedTo: "Mark",
+				// 	assignedBy: "Mark",
+				// 	name: "Test finished product",
+				// 	message: "Ensure it can be demoed.",
+				// }
 			]
 		}
 	}
@@ -116,6 +116,18 @@ class Dashboard extends React.Component {
 		console.log(this.state.currentTaskName);
 		console.log(this.state.currentAssignee);
 		console.log(this.state.currentDescription);
+		if(this.state.currentAssignee === this.state.user.profileObj.name) {
+			let userTasks = [...this.state.userTasks];
+			let userTasksCount = userTasks.length;
+			userTasks.push({
+				id: userTasksCount,
+				assignedBy: this.state.user.profileObj.name,
+				assignedTo: this.state.currentAssignee,
+				name: this.state.currentTaskName,
+				message: this.state.currentDescription
+			});
+			this.setState({userTasks: userTasks});
+		}
 	}
 
 	render() {
@@ -153,9 +165,8 @@ class Dashboard extends React.Component {
 											this.state.userTasks.length > 0 ?
 											<section id="selectedTaskElement">
 												<h1>{this.state.userTasks[this.state.selectedTask].name}</h1>
-
 												<a><strong>Assigned By:</strong><br></br>{this.state.userTasks[this.state.selectedTask].assignedBy}</a>
-												<a><strong>Details:</strong><br></br>{this.state.userTasks[this.state.selectedTask].message}</a>
+												<a><strong>Description:</strong><br></br>{this.state.userTasks[this.state.selectedTask].message}</a>
 											</section> :
 											<section id="selectedTaskElement">
 												<h1 id="noTaskLabel">No Tasks Currently Selected or Available :)</h1>
