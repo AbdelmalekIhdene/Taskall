@@ -33162,7 +33162,9 @@ function (_React$Component) {
         var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
 
         console.log(userName);
-        console.log(organisationName); // this.AJAXRequest(this, "POST", "https://abdelmalek.ihdene.com/addOrganisation?name={}")
+        console.log(organisationName);
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
       }
     });
 
