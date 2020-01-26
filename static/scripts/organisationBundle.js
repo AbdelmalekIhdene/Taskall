@@ -33163,8 +33163,9 @@ function (_React$Component) {
 
         console.log(userName);
         console.log(organisationName);
+        console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName));
 
-        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
       }
     });
 
