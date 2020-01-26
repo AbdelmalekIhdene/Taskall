@@ -33160,9 +33160,16 @@ function (_React$Component) {
       var userTasks = _toConsumableArray(_this.state.userTasks);
 
       var index = event.target.getAttribute("task-id");
-      console.log(index);
 
-      if (confirm("Are you sure you would like to delete this task ".concat(_this.state.userTasks[index].name, "?"))) {
+      if (confirm("Are you sure you would like to delete the task ".concat(_this.state.userTasks[index].name, "?"))) {
+        var userName = _this.state.userTasks[index].assignedBy;
+        var organisationName = _this.state.userTasks[index].organisation;
+        var assignee = _this.state.userTasks[index].assignedTo;
+        var taskName = _this.state.userTasks[index].name;
+        var description = _this.state.userTasks[index].message;
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeTask?username=".concat(userName, "&organisation=").concat(organisationName, "&taskname=").concat(taskName, "&assignee=").concat(assignee, "&description=").concat(description), function (instance, data) {});
+
         if (index + 1 === userTasks.length || userTasks.length === 1) {
           userTasks.pop();
         } else {

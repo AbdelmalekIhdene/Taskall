@@ -107,8 +107,13 @@ class Dashboard extends React.Component {
 		console.log("Clicked delete");
 		let userTasks = [...this.state.userTasks];
 		const index = event.target.getAttribute("task-id");
-		console.log(index);
-		if(confirm(`Are you sure you would like to delete this task ${this.state.userTasks[index].name}?`)) {
+		if(confirm(`Are you sure you would like to delete the task ${this.state.userTasks[index].name}?`)) {
+			let userName = this.state.userTasks[index].assignedBy;
+			let organisationName = this.state.userTasks[index].organisation;
+			let assignee = this.state.userTasks[index].assignedTo;
+			let taskName = this.state.userTasks[index].name;
+			let description = this.state.userTasks[index].message;
+			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeTask?username=${userName}&organisation=${organisationName}&taskname=${taskName}&assignee=${assignee}&description=${description}`, function(instance, data){});
 			if((index + 1) === userTasks.length || userTasks.length === 1) {
 				userTasks.pop();
 			} else {
