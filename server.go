@@ -117,7 +117,13 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 				})
 			i += 1
 		}
-		log.Println(json.Marshal(organisationEntries))
+		v, err := json.Marshal(organisationEntries)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		log.Println(string(v))
 		w.WriteHeader(http.StatusOK)
 	}
 }
