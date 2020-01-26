@@ -33104,6 +33104,7 @@ function (_React$Component) {
               if (userString !== null) {
                 user = JSON.parse(userString);
                 assignee = user.profileObj.name;
+                console.log("https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee));
                 assignee = assignee.replace(" ", "+");
 
                 _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee), function (instance, data) {
