@@ -92,6 +92,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+		log.Println(rows)
 		v, err := json.Marshal(rows)
 		if err != nil {
 			log.Println(err)
