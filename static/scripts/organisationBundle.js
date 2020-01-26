@@ -33198,7 +33198,8 @@ function (_React$Component) {
 
     _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
       console.log(event.target.value);
-      localStorage.setItem("taskall-organisation", event.target.value); // window.location.href = "./dashboard";
+      localStorage.setItem("taskall-organisation", event.target.value);
+      window.location.href = "./dashboard";
     });
 
     _this.state = {

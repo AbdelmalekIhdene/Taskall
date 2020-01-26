@@ -33084,6 +33084,7 @@ function (_React$Component) {
             case 0:
               userString = localStorage.getItem("taskall-user-information");
               organisationString = localStorage.getItem("taskall-organisation");
+              console.log(organisationString);
 
               if (userString !== null) {
                 _this.setState({
@@ -33104,7 +33105,7 @@ function (_React$Component) {
                 });
               }
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
