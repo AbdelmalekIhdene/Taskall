@@ -82,7 +82,7 @@ class Organisation extends React.Component {
 			this.setState({organisationNames: organisationNames});
 		}
 	}
-	handleOrganisationRedirect = (organisation) => {
+	handleOrganisationRedirect = (organisation) => {1
 		localStorage.setItem("taskall-organisation", organisation);
 		window.location.href = "./dashboard";
 	}

@@ -7,6 +7,9 @@ class Dashboard extends React.Component {
 		this.state = {
 			user: null,
 			selectedOrganisation: "",
+			currentTaskName: "",
+			currentAssignee: "",
+			currentDescription: "",
 			selectedTask: 0,
 			userTasks: [
 				{
@@ -97,6 +100,24 @@ class Dashboard extends React.Component {
 		}
 	}
 
+	handleTaskNameChange = (event) => {
+		this.setState({currentTaskName: event.target.value});
+	}
+
+	handleAssigneeChange = (event) => {
+		this.setState({currentAssignee: event.target.value});
+	}
+
+	handleDescriptionChange = (event) => {
+		this.setState({currentDescription: event.target.value});
+	}
+
+	handleAssignTaskClick = (event) => {
+		console.log(this.state.currentTaskName);
+		console.log(this.state.currentAssignee);
+		console.log(this.state.currentDescription);
+	}
+
 	render() {
 		return (
 			<React.Fragment>
@@ -144,12 +165,12 @@ class Dashboard extends React.Component {
 							</React.Fragment>
 							<section id="taskAssign">
 								<section id="inputContainer">
-									<input placeholder="Task Name" type="text"></input>
-									<input placeholder="Assign To" type="text"></input>
+									<input onChange={this.handleTaskNameChange} placeholder="Task Name" type="text"></input>
+									<input onChange={this.handleAssigneeChange} placeholder="Assign To" type="text"></input>
 								</section>
-								<textarea placeholder="Description..." rows="4"></textarea>
+								<textarea onChange={this.handleDescriptionChange} placeholder="Description..." rows="4"></textarea>
 								<section id="assignCenter">
-									<button>Assign Task</button>
+									<button onClick={this.handleAssignTaskClick}>Assign Task</button>
 								</section>
 							</section>
 						</section>
