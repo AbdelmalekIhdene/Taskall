@@ -58,6 +58,7 @@ class Dashboard extends React.Component {
 	componentDidMount = async() => {
 		const userString = localStorage.getItem("taskall-user-information");
 		const organisationString = localStorage.getItem("taskall-organisation");
+		console.log(organisationString);
 		if(userString !== null) {
 			this.setState({user: JSON.parse(userString)});
 		} else {
