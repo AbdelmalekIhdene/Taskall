@@ -60,6 +60,7 @@ class Organisation extends React.Component {
 			let organisationName = this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
 			console.log(userName);
 			console.log(organisationName);
+			console.log(`https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`);
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 		}
 	}
