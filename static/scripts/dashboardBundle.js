@@ -33152,9 +33152,36 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleTaskNameChange", function (event) {
+      _this.setState({
+        currentTaskName: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleAssigneeChange", function (event) {
+      _this.setState({
+        currentAssignee: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleDescriptionChange", function (event) {
+      _this.setState({
+        currentDescription: event.target.value
+      });
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "handleAssignTaskClick", function (event) {
+      console.log(_this.state.currentTaskName);
+      console.log(_this.state.currentAssignee);
+      console.log(_this.state.currentDescription);
+    });
+
     _this.state = {
       user: null,
       selectedOrganisation: "",
+      currentTaskName: "",
+      currentAssignee: "",
+      currentDescription: "",
       selectedTask: 0,
       userTasks: [{
         id: 0,
@@ -33236,17 +33263,22 @@ function (_React$Component) {
       }, _react["default"].createElement("section", {
         id: "inputContainer"
       }, _react["default"].createElement("input", {
+        onChange: this.handleTaskNameChange,
         placeholder: "Task Name",
         type: "text"
       }), _react["default"].createElement("input", {
+        onChange: this.handleAssigneeChange,
         placeholder: "Assign To",
         type: "text"
       })), _react["default"].createElement("textarea", {
+        onChange: this.handleDescriptionChange,
         placeholder: "Description...",
         rows: "4"
       }), _react["default"].createElement("section", {
         id: "assignCenter"
-      }, _react["default"].createElement("button", null, "Assign Task"))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
+      }, _react["default"].createElement("button", {
+        onClick: this.handleAssignTaskClick
+      }, "Assign Task"))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
     }
   }]);
 

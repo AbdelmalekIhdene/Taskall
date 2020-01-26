@@ -33197,6 +33197,7 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (organisation) {
+      1;
       localStorage.setItem("taskall-organisation", organisation);
       window.location.href = "./dashboard";
     });
