@@ -6,7 +6,7 @@ class Dashboard extends React.Component {
 		this.state = {
 			//user: null,
 			selectedTask: 0,
-			currentTaskInput: "",
+			currentOrganisationInput: "",
 			userTasks: [
 				{
 					id: 0,
@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
 											{ this.state.userTasks.map(task => { return (
 											<React.Fragment key={task.id}>
 												<section id="taskListElement">
-													<a>{task.name}</a>
+													<a onClick={this.handleTaskClick} task-name={task.name}>{task.name}</a>
 													<i onClick={this.handleTaskDelete} task-id={task.id} className="material-icons delete">delete</i>
 												</section>
 												<div className="taskListDivider"></div>

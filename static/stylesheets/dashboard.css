@@ -79,13 +79,15 @@ html, body {
 	align-self: left;
 	margin-top: 5px;
 	text-indent: 10%;
+	cursor: pointer;
 }
 
 #taskListElement i {
 	display: inline;
-	padding-left: 10px;
-	padding-right: 20px;
+	margin-left: 10px;
+	margin-right: 20px;
 	justify-content: flex-end;
+	cursor: pointer;
 }
 
 .taskListDivider {

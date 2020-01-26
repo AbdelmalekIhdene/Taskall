@@ -266,6 +266,7 @@ function (_React$Component) {
     _this.state = {
       //user: null,
       selectedTask: 0,
+      currentOrganisationInput: "",
       userTasks: [{
         id: 0,
         assignedBy: "Mark",
@@ -320,7 +321,10 @@ function (_React$Component) {
           key: task.id
         }, _react["default"].createElement("section", {
           id: "taskListElement"
-        }, _react["default"].createElement("a", null, task.name), _react["default"].createElement("i", {
+        }, _react["default"].createElement("a", {
+          onClick: _this2.handleTaskClick,
+          "task-name": task.name
+        }, task.name), _react["default"].createElement("i", {
           onClick: _this2.handleTaskDelete,
           "task-id": task.id,
           className: "material-icons delete"
