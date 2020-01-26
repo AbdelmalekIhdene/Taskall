@@ -9,7 +9,7 @@ class Organisation extends React.Component {
 			currentOrganisationInput: "",
 			organisationNames: []
 		}
-		this.handleOrganisationRedirect.bind(this);
+		this.handleOrganisationRedirect = this.handleOrganisationRedirect.bind(this);
 	}
 	AJAXRequest = (reference, method, url, success) => {
 		var xhr = new XMLHttpRequest();
@@ -83,7 +83,7 @@ class Organisation extends React.Component {
 		}
 	}
 	handleOrganisationRedirect = (event) => {
-		localStorage.setItem("taskall-organisation", event.currentTarget.value);
+		localStorage.setItem("taskall-organisation", event.target.value);
 		window.location.href = "./dashboard";
 	}
 	render() {
