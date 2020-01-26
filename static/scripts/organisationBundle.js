@@ -33072,12 +33072,27 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Organisation).call(this));
 
+    _defineProperty(_assertThisInitialized(_this), "AJAXRequest", function (method, url, success) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState > 3 && xhr.status == 200) {
+          success(xhr.responseText);
+        }
+      };
+
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.send();
+      return xhr;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "componentDidMount",
     /*#__PURE__*/
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime["default"].mark(function _callee() {
-      var userString, userConst;
+      var userString, user, userName, userConst;
       return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -33085,8 +33100,20 @@ function (_React$Component) {
               userString = localStorage.getItem("taskall-user-information");
 
               if (userString !== null) {
+                user = JSON.parse(userString);
+                userName = user.profileObj.name;
+                userName = userName.replace(" ", "+");
+                console.log("https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName));
+
+                _this.AJAXRequest("POST", "https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName), function (data) {
+                  console.log(data);
+                  this.setState({
+                    organisationNames: JSON.parse(data)
+                  });
+                });
+
                 _this.setState({
-                  user: JSON.parse(userString)
+                  user: user
                 });
               } else {
                 // Only for development, remove later!
@@ -33157,16 +33184,7 @@ function (_React$Component) {
     _this.state = {
       user: null,
       currentOrganisationInput: "",
-      organisationNames: [{
-        id: 0,
-        name: "Joseph's Dojo"
-      }, {
-        id: 1,
-        name: "Malek's Kingdom"
-      }, {
-        id: 2,
-        name: "GSoft HQ"
-      }]
+      organisationNames: []
     };
     return _this;
   }
