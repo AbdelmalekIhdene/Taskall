@@ -33194,7 +33194,7 @@ function (_React$Component) {
 
       var organisationName = _this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
 
-      _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+      console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName)); // this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 
       _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
 
