@@ -39,8 +39,10 @@
 }
 
 #main-title h1{
+    color: black;
+    background-color: #FCFCFC;
     align-items: center;
     align-self: center;
     position: relative;
-    margin-top: 20px;
+    margin-top: 50px;
 }

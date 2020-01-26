@@ -22,7 +22,14 @@ html, body {
 }
 
 #organisationAdd {
+	
 	display: flex;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-top: 5px;
+	border-bottom-left-radius: 0.35em;
+	border-bottom-right-radius: 0.35em;
 }
 
 #organisationBox {
@@ -32,7 +39,8 @@ html, body {
 }
 
 #organisationBox h1 {
-	background-color:  rgb(82, 226, 226);
+	color: white;
+	background-color:  #DD575C;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	font-size: 22px;
@@ -43,47 +51,52 @@ html, body {
 #organisationAdd input {
 	flex: 1;
 	margin-right: 5px;
-}
-
-#confirmSelection input{
-	flex: 1;
-	margin-left: 5px;
-	margin-right: 5px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-right: 10px;
 }
 
 #organisationList {
 	/* Margin collapses, so you get 50 - 20 which is 30 */
-	margin-top: 37px;
+	background-color: rgb(75, 75, 75);
+	
 }
 
 #organisationListElement {
+	background-color: rgb(172, 172, 172);
 	display: flex;
 	font-family: 'Courier New', Courier, monospace;
 	justify-content: flex-end;
-	margin-top: 23px;
-	margin-bottom: 23px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 0.35em;
 }
 
 #organisationListElement a {
 	flex: 1;
 	font-family: 'Courier New', Courier, monospace;
-	text-align: left;
+	text-align: center;
+	align-self: left;
+	margin-top: 5px;
 	text-indent: 10%;
 }
 
 #organisationListElement i {
 	display: inline;
-	/* padding-left: 50px; */
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: flex-end;
+}
+
+#organisationListElement j {
+	display: inline;
+	padding-left: 20px;
+	padding-right: 10px;
+	justify-content: flex-end;
 }
 
 #organisationListDivider {
 	width: 100%;
 	height: 1px;
-	background: rgba(150, 150, 150, 1);
+	background: rgb(75, 75, 75);
 }
 
 #organisationListDivider:last-child {

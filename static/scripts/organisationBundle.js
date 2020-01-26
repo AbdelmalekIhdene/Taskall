@@ -32968,8 +32968,6 @@ function (_React$Component) {
       }
     });
 
-    _defineProperty(_assertThisInitialized(_this), "handleConfirmSelection", function (event) {});
-
     _this.state = {
       user: null,
       currentOrganisationInput: "",
@@ -33003,11 +33001,7 @@ function (_React$Component) {
         onChange: this.handleOrganisationInputChange
       }), _react["default"].createElement("button", {
         onClick: this.handleOrganisationAddClick
-      }, "Add Organisation")), _react["default"].createElement("section", {
-        id: "confirmSelection"
-      }, _react["default"].createElement("button", {
-        onClick: this.handleConfirmSelection
-      }, "Confirm")), _react["default"].createElement("div", {
+      }, "Add Organisation")), _react["default"].createElement("div", {
         id: "organisationListDivider"
       }), _react["default"].createElement("section", {
         id: "organisationList"
@@ -33016,7 +33010,9 @@ function (_React$Component) {
           key: organisation.id
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
-        }, _react["default"].createElement("a", null, organisation.name), _react["default"].createElement("i", {
+        }, _react["default"].createElement("a", null, organisation.name), _react["default"].createElement("j", {
+          className: "material-icons label"
+        }, "label"), "             ", _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
           className: "material-icons delete"

@@ -67,10 +67,6 @@ class Organisation extends React.Component {
 		}
 	}
 
-	handleConfirmSelection = (event) => {
-
-	}
-
 	render() {
 		return (
 			<React.Fragment>
@@ -84,9 +80,6 @@ class Organisation extends React.Component {
 									<input type="text" onChange={this.handleOrganisationInputChange}></input>
 									<button onClick={this.handleOrganisationAddClick}>Add Organisation</button>
 								</section>
-								<section id="confirmSelection">
-									<button onClick={this.handleConfirmSelection}>Confirm Selections</button>
-								</section>
 								<div id="organisationListDivider"></div>
 								<section id="organisationList">
 									{
@@ -94,8 +87,8 @@ class Organisation extends React.Component {
 											return (
 												<React.Fragment key={organisation.id}>
 													<section id="organisationListElement">
-														<a>{organisation.name}</a>
-														<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
+														<a>{organisation.name}</a>	
+														<j className="material-icons label">label</j>													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 													</section>
 													<div id="organisationListDivider"></div>
 												</React.Fragment>

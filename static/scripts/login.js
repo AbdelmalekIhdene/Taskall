@@ -13,7 +13,7 @@ class Login extends React.Component {
 					<div id="title">
 						<i className="material-icons lock">lock</i>
 					</div>
-					<h1 id="main-title"> "Welcome to TaskAll" </h1>
+				<h1 id="main-title"> "Welcome to TaskAll" </h1>	
 					<section id="Google-login">
 						<GoogleLogin
 							clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
