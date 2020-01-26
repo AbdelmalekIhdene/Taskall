@@ -82,15 +82,24 @@ func (srv *server) AddOrganisation() http.HandlerFunc {
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
+			return
 		}
 		name := r.Form.Get("name")
 		organisation := r.Form.Get("organisation")
-		requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s');", name, organisation)
-		log.Println(requestStr)
-		_, err = srv.DB.Query(requestStr)
-		if err != nil {
-			log.Println(err)
-			w.WriteHeader(http.StatusBadRequest)
+		rows, err := srv.DB.Query(fmt.Sprintf("SELECT * FROM organisations WHERE name = '%s' AND organisation = '%s';", name, organisation))
+		i := 0
+		defer rows.Close()
+		for rows.Next() {
+			i += 1
+		}
+		if i == 0 {
+			requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s');", name, organisation)
+			log.Println(requestStr)
+			_, err = srv.DB.Query(requestStr)
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusBadRequest)
+			}
 		}
 		w.WriteHeader(http.StatusOK)
 	}
