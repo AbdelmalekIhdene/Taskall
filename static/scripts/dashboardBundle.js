@@ -33092,7 +33092,7 @@ function (_React$Component) {
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime["default"].mark(function _callee() {
-      var userString, organisationString, user, assignee, userConst;
+      var userString, organisationString, user, assignee, organisation, userConst;
       return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -33104,10 +33104,11 @@ function (_React$Component) {
               if (userString !== null) {
                 user = JSON.parse(userString);
                 assignee = user.profileObj.name.replace(" ", "+");
-                console.log("https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee));
+                organisation = organisationString;
+                organisation = organisation.replace(" ", "+");
                 assignee = assignee.replace(" ", "+");
 
-                _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee), function (instance, data) {
+                _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee, "&organisation=").concat(organisation), function (instance, data) {
                   if (JSON.parse(data) !== null) {
                     instance.setState({
                       userTasks: JSON.parse(data)

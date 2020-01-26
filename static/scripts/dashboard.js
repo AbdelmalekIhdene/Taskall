@@ -76,9 +76,10 @@ class Dashboard extends React.Component {
 		if(userString !== null) {
 			const user = JSON.parse(userString);
 			let assignee = user.profileObj.name.replace(" ", "+");
-			console.log(`https://abdelmalek.ihdene.com/taskall/showTasks?assignee=${assignee}`);
+			let organisation = organisationString;
+			organisation = organisation.replace(" ", "+");
 			assignee = assignee.replace(" ", "+");
-			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/showTasks?assignee=${assignee}`,
+			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/showTasks?assignee=${assignee}&organisation=${organisation}`,
 			function(instance, data){
 				if(JSON.parse(data) !== null) {
 					instance.setState({userTasks: JSON.parse(data)});

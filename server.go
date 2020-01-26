@@ -176,6 +176,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+
 		name := r.Form.Get("name")
 		log.Println(name)
 		requestStr := fmt.Sprintf("SELECT organisation FROM organisations WHERE name = '%s';", name)
@@ -240,9 +241,10 @@ func (srv *server) ShowTasks() http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
+		organisation := r.Form.Get("organisation")
 		assignee := r.Form.Get("assignee")
 		log.Println(assignee)
-		requestStr := fmt.Sprintf("SELECT username, organisation, taskname, description FROM tasks WHERE assignee = '%s';", assignee)
+		requestStr := fmt.Sprintf("SELECT username, organisation, taskname, description FROM tasks WHERE assignee = '%s' AND organisation = '%s';", assignee, organisation)
 		log.Println(requestStr)
 		rows, err := srv.DB.Query(requestStr)
 		if err != nil {
@@ -250,7 +252,7 @@ func (srv *server) ShowTasks() http.HandlerFunc {
 			w.WriteHeader(http.StatusBadRequest)
 			return
 		}
-		var username, organisation, taskname, description string
+		var username, taskname, description string
 		var taskEntries []userTaskEntry
 		defer rows.Close()
 		i := 0
