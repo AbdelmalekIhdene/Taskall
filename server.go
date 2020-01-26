@@ -20,7 +20,7 @@ type server struct {
 }
 
 func NewServer() *server {
-	connStr := "postgres://postgres@192.168.132.125/taskall"
+	connStr := "postgres://postgres:password@192.168.132.125/taskall"
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		log.Fatal(err)
@@ -80,17 +80,20 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
+			return
 		}
 		name := r.Form.Get("name")
 		rows, err := srv.DB.Query("SELECT * FROM organisations WHERE name = $1;", name)
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
+			return
 		}
 		v, err := json.Marshal(rows)
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)
+			return
 		}
 		w.WriteHeader(http.StatusOK)
 		fmt.Println(w, string(v))
