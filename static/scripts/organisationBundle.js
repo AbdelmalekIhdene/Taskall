@@ -33107,9 +33107,12 @@ function (_React$Component) {
 
                 _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showOrganisations?name=".concat(userName), function (instance, data) {
                   console.log(data);
-                  instance.setState({
-                    organisationNames: JSON.parse(data)
-                  });
+
+                  if (JSON.parse(data) !== null) {
+                    instance.setState({
+                      organisationNames: JSON.parse(data)
+                    });
+                  }
                 });
 
                 _this.setState({

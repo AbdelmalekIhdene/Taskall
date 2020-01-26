@@ -32,7 +32,9 @@ class Organisation extends React.Component {
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/showOrganisations?name=${userName}`,
 			function(instance, data){
 				console.log(data);
-				instance.setState({organisationNames: JSON.parse(data)});
+				if(JSON.parse(data) !== null) {
+					instance.setState({organisationNames: JSON.parse(data)});
+				}
 			});
 			this.setState({user: user});
 		} else {
