@@ -32340,20 +32340,24 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", {
+      return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
         id: "container-login"
       }, _react["default"].createElement("div", {
         id: "title"
       }, _react["default"].createElement("i", {
         className: "material-icons lock"
-      }, "lock"))), _react["default"].createElement(_reactGoogleLogin["default"], {
+      }, "lock")), _react["default"].createElement("section", {
+        id: "Taskall-name"
+      }, _react["default"].createElement("p", null, "Taskall")), _react["default"].createElement("section", {
+        id: "Google-login"
+      }, _react["default"].createElement(_reactGoogleLogin["default"], {
         clientId: "703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com",
         buttonText: "Login",
         onSuccess: this.responseGoogle
         /* onFailure={this.responseGoogle} */
         ,
         cookiePolicy: 'single_host_origin'
-      }));
+      }))));
     }
   }]);
 

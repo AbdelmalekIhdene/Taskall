@@ -91,26 +91,28 @@ class Organisation extends React.Component {
 				{
 					this.state.user !== null ?
 					<React.Fragment>
-						<section id="organisationBox">
-							<h1>Hello, {this.state.user.profileObj.name}</h1>
-							<section id="organisationAdd">
-								<input type="text" onChange={this.handleOrganisationInputChange}></input>
-								<button onClick={this.handleOrganisationAddClick}>Add Organisation</button>
-							</section>
-							<section id="organisationList">
-								{
-									this.state.organisationNames.map(organisation => {
-										return (
-											<React.Fragment key={organisation.id}>
-												<section id="organisationListElement">
-													<a onClick={this.handleOrganisationRedirect}>{organisation.organisation}</a>
-													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
-												</section>
-												<div id="organisationListDivider"></div>
-											</React.Fragment>
-										);
-									})
-								}
+						<section id="organisationPop">
+							<section id="organisationBox">
+								<h1>Hello, {this.state.user.profileObj.name}</h1>
+								<section id="organisationAdd">
+									<input type="text" onChange={this.handleOrganisationInputChange}></input>
+									<button onClick={this.handleOrganisationAddClick}>Add Organisation</button>
+								</section>
+								<section id="organisationList">
+									{
+										this.state.organisationNames.map(organisation => {
+											return (
+												<React.Fragment key={organisation.id}>
+													<section id="organisationListElement">
+														<a onClick={this.handleOrganisationRedirect}>{organisation.organisation}</a>
+														<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
+													</section>
+													<div id="organisationListDivider"></div>
+												</React.Fragment>
+											);
+										})
+									}
+								</section>
 							</section>
 						</section>
 					</React.Fragment> :

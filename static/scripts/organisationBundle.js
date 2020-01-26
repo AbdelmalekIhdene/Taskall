@@ -33215,6 +33215,8 @@ function (_React$Component) {
       var _this2 = this;
 
       return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "organisationPop"
+      }, _react["default"].createElement("section", {
         id: "organisationBox"
       }, _react["default"].createElement("h1", null, "Hello, ", this.state.user.profileObj.name), _react["default"].createElement("section", {
         id: "organisationAdd"
@@ -33239,7 +33241,7 @@ function (_React$Component) {
         }, "delete")), _react["default"].createElement("div", {
           id: "organisationListDivider"
         }));
-      })))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
+      }))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
     }
   }]);
 
