@@ -33174,6 +33174,12 @@ function (_React$Component) {
       console.log(index);
 
       if (confirm("Are you sure you would like to delete the organisation ".concat(_this.state.organisationNames[index].organisation, "?"))) {
+        var userName = _this.state.user.profileObj.name.replace(" ", "+");
+
+        var organisationName = _this.state.organisationNames[index].organisation.replace(" ", "+").replace("#", "%23");
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+
         if (index + 1 === organisationNames.length || organisationNames.length === 1) {
           organisationNames.pop();
         } else {
@@ -33183,14 +33189,6 @@ function (_React$Component) {
         for (var i = 0; i < organisationNames.length; i += 1) {
           organisationNames[i].id = i;
         }
-
-        var userName = _this.state.user.profileObj.name.replace(" ", "+");
-
-        var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
-
-        console.log("https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName));
-
-        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
 
         _this.setState({
           organisationNames: organisationNames
