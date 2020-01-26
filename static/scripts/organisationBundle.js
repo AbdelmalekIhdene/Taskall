@@ -33197,8 +33197,8 @@ function (_React$Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
-      localStorage.setItem("taskall-organisation", event.currentTarget.value);
-      window.location.href = "./dashboard";
+      console.log(event);
+      localStorage.setItem("taskall-organisation", event.target.value); // window.location.href = "./dashboard";
     });
 
     _this.state = {
@@ -33206,9 +33206,7 @@ function (_React$Component) {
       currentOrganisationInput: "",
       organisationNames: []
     };
-
-    _this.handleOrganisationRedirect.bind(_assertThisInitialized(_this));
-
+    _this.handleOrganisationRedirect = _this.handleOrganisationRedirect.bind(_assertThisInitialized(_this));
     return _this;
   }
 
