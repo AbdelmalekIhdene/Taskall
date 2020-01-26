@@ -33153,19 +33153,15 @@ function (_React$Component) {
           organisation: _this.state.currentOrganisationInput
         });
 
-        _this.setState({
-          organisationNames: organisationNames
-        });
-
         var userName = _this.state.user.profileObj.name.replace(" ", "+");
 
         var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
 
-        console.log(userName);
-        console.log(organisationName);
-        console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName));
-
         _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+
+        _this.setState({
+          organisationNames: organisationNames
+        });
       }
     });
 
@@ -33187,6 +33183,12 @@ function (_React$Component) {
         for (var i = 0; i < organisationNames.length; i += 1) {
           organisationNames[i].id = i;
         }
+
+        var userName = _this.state.user.profileObj.name.replace(" ", "+");
+
+        var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
 
         _this.setState({
           organisationNames: organisationNames
