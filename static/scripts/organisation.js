@@ -9,6 +9,7 @@ class Organisation extends React.Component {
 			currentOrganisationInput: "",
 			organisationNames: []
 		}
+		this.handleOrganisationRedirect.bind(this);
 	}
 	AJAXRequest = (reference, method, url, success) => {
 		var xhr = new XMLHttpRequest();
@@ -104,7 +105,7 @@ class Organisation extends React.Component {
 											return (
 												<React.Fragment key={organisation.id}>
 													<section id="organisationListElement">
-														<a onClick={this.handleOrganisationRedirect} onChange={this.handleOrganisationRedirect.bind(this)}>{organisation.organisation}</a>
+														<a onClick={this.handleOrganisationRedirect}>{organisation.organisation}</a>
 														<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 													</section>
 													<div id="organisationListDivider"></div>
