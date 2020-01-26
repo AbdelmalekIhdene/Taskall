@@ -56,23 +56,20 @@ func (srv *server) HandleStaticTemplate(paths ...string) http.HandlerFunc {
 	}
 }
 
-// func (srv *server) AddOrganisation() http.HandlerFunc {
-// 	return func(w http.ResponseWriter, r *http.Request) {
-// 		err := r.ParseForm()
-// 		if err != nil {
-// 			log.Println(err)
-// 			w.WriteHeader(http.StatusBadRequest)
-// 		}
-// 		name := r.Form.Get("name")
-// 		organisation := r.Form.Get("organisation")
-// 		row, err := srv.DB.Query("INSERT INTO ")
-// 		if err != nil {
-// 			log.Println(err)
-// 			w.WriteHeader(http.StatusBadRequest)
-// 		}
-// 		w.WriteHeader(http.StatusOK)
-// 	}
-// }
+func (srv *server) RemoveOrganisation() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		name := r.Form.Get("name")
+		organisation := r.Form.Get("organisation")
+		requestStr := fmt.Sprintf("DELETE FROM organisations WHERE name = '%s', organisation = '%s';", name, organisation)
+		srv.DB.Query(requestStr)
+		w.WriteHeader(http.StatusOK)
+	}
+}
 
 type userOrganisationEntry struct {
 	Id           int    `json:"id"`
