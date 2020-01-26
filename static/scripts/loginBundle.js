@@ -32154,13 +32154,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("div", {
+      return _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
         id: "container-login"
       }, _react["default"].createElement("div", {
         id: "title"
       }, _react["default"].createElement("i", {
         className: "material-icons lock"
-      }, "lock"))), _react["default"].createElement("section", {
+      }, "lock")), _react["default"].createElement("h1", {
+        id: "main-title"
+      }, " \"Welcome to TaskAll\" "), _react["default"].createElement("section", {
         id: "Google-login"
       }, _react["default"].createElement(_reactGoogleLogin["default"], {
         clientId: "703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com",
@@ -32169,7 +32171,7 @@ function (_React$Component) {
         /* onFailure={this.responseGoogle} */
         ,
         cookiePolicy: 'single_host_origin'
-      })));
+      }))));
     }
   }]);
 

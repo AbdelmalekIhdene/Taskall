@@ -32968,6 +32968,8 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleConfirmSelection", function (event) {});
+
     _this.state = {
       user: null,
       currentOrganisationInput: "",
@@ -32991,6 +32993,8 @@ function (_React$Component) {
       var _this2 = this;
 
       return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "organisationPop"
+      }, _react["default"].createElement("section", {
         id: "organisationBox"
       }, _react["default"].createElement("h1", null, "Hello, ", this.state.user.profileObj.name), _react["default"].createElement("section", {
         id: "organisationAdd"
@@ -33000,6 +33004,12 @@ function (_React$Component) {
       }), _react["default"].createElement("button", {
         onClick: this.handleOrganisationAddClick
       }, "Add Organisation")), _react["default"].createElement("section", {
+        id: "confirmSelection"
+      }, _react["default"].createElement("button", {
+        onClick: this.handleConfirmSelection
+      }, "Confirm")), _react["default"].createElement("div", {
+        id: "organisationListDivider"
+      }), _react["default"].createElement("section", {
         id: "organisationList"
       }, this.state.organisationNames.map(function (organisation) {
         return _react["default"].createElement(_react["default"].Fragment, {
@@ -33013,7 +33023,7 @@ function (_React$Component) {
         }, "delete")), _react["default"].createElement("div", {
           id: "organisationListDivider"
         }));
-      })))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
+      }))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
     }
   }]);
 

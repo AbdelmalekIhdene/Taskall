@@ -6,8 +6,10 @@
 
 #Google-login {
     align-self: center;
-
+    position: relative;
+    margin-top: 130px;
 }
+
 #container-login {
     background-color: #FCFCFC;
     position: relative;
@@ -34,4 +36,11 @@
 .lock {
 	position: relative;
 	top: 2px;
+}
+
+#main-title h1{
+    align-items: center;
+    align-self: center;
+    position: relative;
+    margin-top: 20px;
 }

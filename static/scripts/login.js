@@ -9,19 +9,20 @@ class Login extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<div id="container-login">
+				<section id="container-login">
 					<div id="title">
 						<i className="material-icons lock">lock</i>
 					</div>
-				</div>
-				<section id="Google-login">
-					<GoogleLogin
-					clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
-					buttonText="Login"
-					onSuccess={this.responseGoogle}
-					/* onFailure={this.responseGoogle} */
-					cookiePolicy={'single_host_origin'}
-					/>
+					<h1 id="main-title"> "Welcome to TaskAll" </h1>
+					<section id="Google-login">
+						<GoogleLogin
+							clientId="703417215360-lb9udntuvni9l21bkbd9koorrni3148o.apps.googleusercontent.com"
+							buttonText="Login"
+							onSuccess={this.responseGoogle}
+							/* onFailure={this.responseGoogle} */
+							cookiePolicy={'single_host_origin'}
+						/>
+					</section>
 				</section>
 			</React.Fragment>
 		);
