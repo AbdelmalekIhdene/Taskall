@@ -12,5 +12,8 @@ func (srv *server) Routes() {
 	handler.HandleFunc("/addOrganisation", srv.LogRequest(srv.AddOrganisation())).Methods("POST")
 	handler.HandleFunc("/removeOrganisation", srv.LogRequest(srv.RemoveOrganisation())).Methods("POST")
 	handler.HandleFunc("/showOrganisations", srv.LogRequest(srv.ShowOrganisations())).Methods("POST")
+	handler.HandleFunc("/addTask", srv.LogRequest(srv.AddTask())).Methods("POST")
+	handler.HandleFunc("/removeTask", srv.LogRequest(srv.RemoveTask())).Methods("POST")
+	handler.HandleFunc("/showTasks", srv.LogRequest(srv.ShowTasks())).Methods("POST")
 	srv.Server.Handler = handler
 }

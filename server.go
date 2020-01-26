@@ -76,6 +76,30 @@ func (srv *server) RemoveOrganisation() http.HandlerFunc {
 	}
 }
 
+func (srv *server) RemoveTask() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		username := r.Form.Get("username")
+		organisation := r.Form.Get("organisation")
+		taskname := r.Form.Get("taskname")
+		assignee := r.Form.Get("assignee")
+		description := r.Form.Get("description")
+		requestStr := fmt.Sprintf("DELETE FROM tasks WHERE username = '%s' AND organisation = '%s' AND taskname = '%s' AND assignee = '%s' AND description = '%s';",
+			username, organisation, taskname, assignee, description)
+		log.Println(requestStr)
+		_, err = srv.DB.Query(requestStr)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+		}
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
 func (srv *server) AddOrganisation() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		err := r.ParseForm()
@@ -94,6 +118,39 @@ func (srv *server) AddOrganisation() http.HandlerFunc {
 		}
 		if i == 0 {
 			requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s');", name, organisation)
+			log.Println(requestStr)
+			_, err = srv.DB.Query(requestStr)
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusBadRequest)
+			}
+		}
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
+func (srv *server) AddTask() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		username := r.Form.Get("username")
+		organisation := r.Form.Get("organisation")
+		taskname := r.Form.Get("taskname")
+		assignee := r.Form.Get("assignee")
+		description := r.Form.Get("description")
+		rows, err := srv.DB.Query(fmt.Sprintf("SELECT * FROM tasks WHERE username = '%s' AND organisation = '%s' AND taskname = '%s' AND assignee = '%s' AND description = '%s';",
+			username, organisation, taskname, assignee, description))
+		i := 0
+		defer rows.Close()
+		for rows.Next() {
+			i += 1
+		}
+		if i == 0 {
+			requestStr := fmt.Sprintf("INSERT INTO tasks(username, organisation, taskname, assignee, description) VALUES ('%s', '%s', '%s', '%s', '%s');", username, organisation, taskname, assignee, description)
 			log.Println(requestStr)
 			_, err = srv.DB.Query(requestStr)
 			if err != nil {
@@ -149,6 +206,73 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 			i += 1
 		}
 		v, err := json.Marshal(organisationEntries)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		log.Println(string(v))
+		fmt.Fprintln(w, string(v))
+		w.WriteHeader(http.StatusOK)
+	}
+}
+
+type userTaskEntry struct {
+	Id           int    `json:"id"`
+	Username     string `json:"assignedBy"`
+	Organisation string `json:"organisation"`
+	Assignee     string `json:"assignedTo"`
+	Taskname     string `json:"name"`
+	Description  string `json:"message"`
+}
+
+// 	id: 1,
+// 	assignedTo: "Mark",
+// 	assignedBy: "Quinn",
+// 	name: "Finish SQL",
+// 	message: "Complete the dashboard and connect to front-end",
+
+func (srv *server) ShowTasks() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		err := r.ParseForm()
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		assignee := r.Form.Get("assignee")
+		log.Println(assignee)
+		requestStr := fmt.Sprintf("SELECT username, organisation, taskname, description FROM organisations WHERE assignee = '%s';", assignee)
+		log.Println(requestStr)
+		rows, err := srv.DB.Query(requestStr)
+		if err != nil {
+			log.Println(err)
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+		var username, organisation, taskname, description string
+		var taskEntries []userTaskEntry
+		defer rows.Close()
+		i := 0
+		for rows.Next() {
+			err := rows.Scan(&username, &organisation, &taskname, &description)
+			if err != nil {
+				log.Println(err)
+				w.WriteHeader(http.StatusBadRequest)
+				return
+			}
+			taskEntries = append(taskEntries,
+				userTaskEntry{
+					Id:           i,
+					Username:     username,
+					Organisation: organisation,
+					Assignee:     assignee,
+					Taskname:     taskname,
+					Description:  description,
+				})
+			i += 1
+		}
+		v, err := json.Marshal(taskEntries)
 		if err != nil {
 			log.Println(err)
 			w.WriteHeader(http.StatusBadRequest)

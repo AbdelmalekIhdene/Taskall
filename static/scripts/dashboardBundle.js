@@ -33190,13 +33190,21 @@ function (_React$Component) {
       console.log(_this.state.currentAssignee);
       console.log(_this.state.currentDescription);
 
-      var userName = _this.state.currentAssignee.replace(" ", "+");
+      var name = _this.state.currentAssignee.replace(" ", "+");
+
+      var userName = _this.state.user.profileObj.name.replace(" ", "+").replace("#", "%23");
 
       var organisationName = _this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
 
-      console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName)); // this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
+      var taskName = _this.state.currentTaskName.replace(" ", "+").replace("#", "%23");
 
-      _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+      var assignee = _this.state.currentAssignee.replace(" ", "+").replace("#", "%23");
+
+      console.log("https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(name, "&organisation=").concat(organisationName)); // this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
+
+      _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(name, "&organisation=").concat(organisationName), function (instance, data) {});
+
+      _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addTask?username=".concat(userName, "&organisation=").concat(organisationName, "&taskname=").concat(taskName, "&assignee=").concat(assignee, "&description=").concat(description), function (instance, data) {});
 
       if (_this.state.currentAssignee === _this.state.user.profileObj.name) {
         var userTasks = _toConsumableArray(_this.state.userTasks);
