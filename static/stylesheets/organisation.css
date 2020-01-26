@@ -23,11 +23,7 @@ html, body {
 
 #organisationAdd {
 	display: flex;
-	justify-content: center;
-	padding-right: 35px;
-	padding-bottom: 10px;
-	padding-left: 4px;
-	padding-top: 10px;
+	padding: 10px;
 	border-bottom-left-radius: 0.35em;
 	border-bottom-right-radius: 0.35em;
 }
