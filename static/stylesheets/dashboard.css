@@ -6,14 +6,14 @@ html, body {
 	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 #dashboard {
 	display: block;
 	justify-content: center;
 	margin: 30px;
-	margin-top: 0;
+	margin-top: 50px;
+	height: 500px;
 }
 
 #pageTitle {
@@ -27,6 +27,7 @@ html, body {
 	text-align: left;
 	padding-bottom: 20px;
 	font-size: 24px;
+	padding-left: 20px;
 }
 
 #dashboardBox {
@@ -35,6 +36,7 @@ html, body {
 	text-align: center;
 	border-bottom-left-radius: 0.35em;
 	border-bottom-right-radius: 0.35em;
+	height: 100%;
 }
 
 #dashboardBox h1 {
@@ -52,6 +54,7 @@ html, body {
 #dashboardTaskList {
 	border-bottom-left-radius: 0.35em;
 	background-color: rgb(75, 75, 75);
+	width: 400px;
 }
 
 #taskListElement {
@@ -97,6 +100,9 @@ html, body {
 }
 
 #selectedTaskElement {
+	flex-grow: 0;
+	flex-shrink: 0;
+	flex-basis: 520px;
 	display: flex;
 	flex-direction: column;
 	justify-content: top;
@@ -110,6 +116,55 @@ html, body {
 	border: gray;
 }
 
+#selectedTaskElement a {
+	line-height: 2;
+	padding-bottom: 10px;
+}
+
 #taskListDivider:last-child {
 	display: none;
+}
+
+#noTaskLabel{
+	padding: 20px;
+	font-size: 20px !important; 
+}
+
+#taskAssign {
+	margin-top: 20px;
+	padding: 20px;
+	background: #DD575C;
+	border-radius: 0.35em;
+	margin-bottom: 20px;
+}
+
+#taskAssign #inputContainer {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+#taskAssign #inputContainer input {
+	padding: 5px;
+	flex-basis: calc(50% - 5px);
+}
+
+#taskAssign textarea {
+	width: 100%;
+	border-radius: 0.35em;
+	padding: 10px;
+}
+
+#taskAssign #assignCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 10px;
+}
+
+#taskAssign #assignCenter button {
+	font-size: 16px;
+	padding: 5px;
+	padding-left: 20px;
+	padding-right: 20px;
 }

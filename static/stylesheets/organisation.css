@@ -78,9 +78,6 @@ html, body {
 	margin-top: 5px;
 	text-indent: 10%;
 }
-a:hover {
-	font-size: 120%;
-  }
 
 #organisationListElement i {
 	display: inline;
