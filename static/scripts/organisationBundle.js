@@ -33156,6 +33156,13 @@ function (_React$Component) {
         _this.setState({
           organisationNames: organisationNames
         });
+
+        var userName = _this.state.user.profileObj.name.replace(" ", "+");
+
+        var organisationName = _this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
+
+        console.log(userName);
+        console.log(organisationName); // this.AJAXRequest(this, "POST", "https://abdelmalek.ihdene.com/addOrganisation?name={}")
       }
     });
 

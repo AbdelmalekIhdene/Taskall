@@ -56,6 +56,11 @@ class Organisation extends React.Component {
 				organisation: this.state.currentOrganisationInput
 			});
 			this.setState({organisationNames: organisationNames});
+			let userName = this.state.user.profileObj.name.replace(" ", "+");
+			let organisationName = this.state.currentOrganisationInput.replace(" ", "+").replace("#", "%23");
+			console.log(userName);
+			console.log(organisationName);
+			// this.AJAXRequest(this, "POST", "https://abdelmalek.ihdene.com/addOrganisation?name={}")
 		}
 	}
 	handleOrganisationDelete = (event) => {
