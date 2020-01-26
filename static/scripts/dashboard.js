@@ -138,7 +138,7 @@ class Dashboard extends React.Component {
 				message: this.state.currentDescription
 			});
 			this.setState({userTasks: userTasks});
-			let userName = this.state.user.profileObj.name.replace(" ", "+");
+			let userName = this.state.currentAssignee.replace(" ", "+");
 			let organisationName = this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
