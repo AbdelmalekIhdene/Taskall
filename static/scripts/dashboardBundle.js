@@ -33077,12 +33077,13 @@ function (_React$Component) {
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime["default"].mark(function _callee() {
-      var userString, userConst;
+      var userString, organisationString, userConst;
       return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               userString = localStorage.getItem("taskall-user-information");
+              organisationString = localStorage.getItem("taskall-organisation");
 
               if (userString !== null) {
                 _this.setState({
@@ -33097,7 +33098,13 @@ function (_React$Component) {
                 });
               }
 
-            case 2:
+              if (organisationString !== null) {
+                _this.setState({
+                  selectedOrganisation: organisationString
+                });
+              }
+
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -33146,6 +33153,7 @@ function (_React$Component) {
 
     _this.state = {
       user: null,
+      selectedOrganisation: "",
       selectedTask: 0,
       userTasks: [{
         id: 0,
@@ -33197,7 +33205,7 @@ function (_React$Component) {
         id: "dashboard"
       }, _react["default"].createElement("h1", {
         id: "pageTitle"
-      }, "Welcome to Your Dashboard, ", this.state.user.profileObj.name), _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+      }, this.state.selectedOrganisation, " Dashboard"), _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
         id: "dashboardBox"
       }, _react["default"].createElement("section", {
         id: "dashboardTaskList"
