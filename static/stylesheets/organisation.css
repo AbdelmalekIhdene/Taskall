@@ -64,6 +64,11 @@ html, body {
 	border-radius: 0.35em;
 }
 
+#organisationListElement:first-child {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
 #organisationListElement a {
 	flex: 1;
 	color: black;
