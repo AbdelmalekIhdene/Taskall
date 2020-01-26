@@ -32114,6 +32114,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -32122,13 +32130,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var Dashboard =
 /*#__PURE__*/
@@ -32136,15 +32146,104 @@ function (_React$Component) {
   _inherits(Dashboard, _React$Component);
 
   function Dashboard(props) {
+    var _this;
+
     _classCallCheck(this, Dashboard);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
+
+    _defineProperty(_assertThisInitialized(_this), "handleTaskDelete", function (event) {
+      console.log("Hello, World!");
+
+      var userTasks = _toConsumableArray(_this.state.userTasks);
+
+      var index = event.target.getAttribute("task-id");
+      console.log(index);
+
+      if (confirm("Are you sure you would like to delete this task ".concat(_this.state.userTasks[index].name, "?"))) {
+        if (index + 1 === userTasks.length || userTasks.length === 1) {
+          userTasks.pop();
+        } else {
+          userTasks.splice(index, 1);
+        }
+
+        for (var i = 0; i < userTasks.length; i += 1) {
+          userTasks[i].id = i;
+        }
+
+        _this.setState({
+          userTasks: userTasks
+        });
+      }
+    });
+
+    _this.state = {
+      //user: null,
+      selectedTask: 0,
+      userTasks: [{
+        id: 0,
+        assignedBy: "Mark",
+        name: "Finish dashboard",
+        message: "Finish the layout and interactivity"
+      }, {
+        id: 1,
+        assignedBy: "Quinn",
+        name: "Finish SQL",
+        status: "In Progress",
+        message: "Complete the dashboard and connect to front-end"
+      }, {
+        id: 2,
+        assignedBy: "Joseph",
+        name: "Finish Login",
+        message: "Have Third-Party authentication working."
+      }, {
+        id: 3,
+        assignedBy: "Joseph",
+        name: "Finish Organization Layout",
+        message: "Finish the layout and interactivity."
+      }, {
+        id: 4,
+        assignedBy: "Dan",
+        name: "Do Challenge",
+        message: "Ensure that we conform to the requrements."
+      }, {
+        id: 5,
+        assignedBy: "Mark",
+        name: "Test finished product",
+        message: "Ensure it can be demoed."
+      }]
+    };
+    return _this;
   }
 
   _createClass(Dashboard, [{
     key: "render",
     value: function render() {
-      return _react["default"].createElement("h1", null, "Hello, Dashboard!");
+      var _this2 = this;
+
+      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboard"
+      }, _react["default"].createElement("h1", {
+        id: "pageTitle"
+      }, "Welcome to Your Dashboard"), _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboardBox"
+      }, _react["default"].createElement("section", {
+        id: "dashboardTaskList"
+      }, this.state.userTasks.map(function (task) {
+        return _react["default"].createElement(_react["default"].Fragment, {
+          key: task.id
+        }, _react["default"].createElement("section", {
+          id: "taskListElement"
+        }, _react["default"].createElement("a", null, task.name), _react["default"].createElement("i", {
+          onClick: _this2.handleTaskDelete,
+          "task-id": task.id,
+          className: "material-icons delete"
+        }, "delete")), _react["default"].createElement("div", {
+          className: "taskListDivider"
+        }));
+      })), _react["default"].createElement("section", {
+        id: "selectedTaskElement"
+      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, "Assigned By: ", this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, "Details: ", this.state.userTasks[this.state.selectedTask].message)))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
     }
   }]);
 

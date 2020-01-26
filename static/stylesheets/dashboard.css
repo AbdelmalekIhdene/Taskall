@@ -1,3 +1,113 @@
+html, body {
+	height: 100%;
+}
+
 #dashboardContainer {
-	color: red;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#dashboard {
+	display: block;
+	justify-content: center;
+	margin: 30px;
+	margin-top: 0;
+}
+
+#pageTitle {
+	padding-top: 20px;
+	padding-left: 5px;
+	background-color: #DD575C;
+	color: whitesmoke;
+	border-top-left-radius: 0.35em;
+	border-top-right-radius: 0.35em;
+	float: top;
+	text-align: left;
+	padding-bottom: 20px;
+	font-size: 24px;
+}
+
+#dashboardBox {
+	background-color: #FCFCFC;
+	display: flex;
+	text-align: center;
+	border-bottom-left-radius: 0.35em;
+	border-bottom-right-radius: 0.35em;
+}
+
+#dashboardBox h1 {
+	padding-bottom: 20px;
+	font-size: 24px;
+}
+
+/*#dashboardNavBar {
+	
+}
+#dashboardNavBar li a {
+	text-decoration: none;
+}*/
+
+#dashboardTaskList {
+	border-bottom-left-radius: 0.35em;
+	background-color: rgb(75, 75, 75);
+}
+
+#taskListElement {
+	background-color: rgb(172, 172, 172);
+	display: flex;
+	font-family: 'Courier New', Courier, monospace;
+	justify-content: flex-end;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-radius: 0.35em;
+	/* display: flex;
+	justify-content: flex-end;
+	padding-top: 30px;
+	padding-bottom: 30px; */
+	/* padding: 5px 20px; */
+}
+
+#taskListElement a {
+	text-align: left;
+	flex: 1;
+	color: black;
+	font-family: 'Courier New', Courier, monospace;
+	text-decoration:none;
+	text-align: center;
+	align-self: left;
+	margin-top: 5px;
+	text-indent: 10%;
+}
+
+#taskListElement i {
+	display: inline;
+	padding-left: 10px;
+	padding-right: 20px;
+	justify-content: flex-end;
+}
+
+.taskListDivider {
+	width: 100%;
+	height: 1px;
+	background: rgba(75, 75, 75);
+}
+
+#selectedTaskElement {
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	text-align: left;
+	padding: 20px;
+	border-bottom-right-radius: 0.35em;
+	border-bottom-left-radius: 0.35em;
+	border-left: rgb(75, 75, 75);
+	border-left-width: 2px;
+	border: gray;
+	
+}
+
+#taskListDivider:last-child {
+	display: none;
 }
