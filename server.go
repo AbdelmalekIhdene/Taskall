@@ -12,14 +12,21 @@ import (
 
 type server struct {
 	*http.Server
+	*sql.DB
 }
 
 func NewServer() *server {
+	connStr := "postgres://postgres@192.168.132.125/taskall"
+	db, err := sql.Open("postgres", connStr)
+	if err != nil {
+		log.Fatal(err)
+	}
 	srv := &server{
 		Server: &http.Server{
 			Addr:    ":8083",
 			Handler: mux.NewRouter(),
 		},
+		DB: db,
 	}
 	srv.Routes()
 	return srv

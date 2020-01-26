@@ -14,6 +14,7 @@ import (
 )
 
 func clean(srv *server, cancel context.CancelFunc) {
+	srv.DB.Close()
 	cancel()
 }
 
