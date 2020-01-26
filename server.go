@@ -66,6 +66,7 @@ func (srv *server) RemoveOrganisation() http.HandlerFunc {
 		name := r.Form.Get("name")
 		organisation := r.Form.Get("organisation")
 		requestStr := fmt.Sprintf("DELETE FROM organisations WHERE name = '%s', organisation = '%s';", name, organisation)
+		log.Println(requestStr)
 		srv.DB.Query(requestStr)
 		w.WriteHeader(http.StatusOK)
 	}
