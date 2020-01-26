@@ -33092,7 +33092,7 @@ function (_React$Component) {
     _asyncToGenerator(
     /*#__PURE__*/
     _regeneratorRuntime["default"].mark(function _callee() {
-      var userString, organisationString, userConst;
+      var userString, organisationString, user, assignee, userConst;
       return _regeneratorRuntime["default"].wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -33102,8 +33102,20 @@ function (_React$Component) {
               console.log(organisationString);
 
               if (userString !== null) {
+                user = JSON.parse(userString);
+                assignee = user.profileObj.name;
+                assignee = assignee.replace(" ", "+");
+
+                _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/showTasks?assignee=".concat(assignee), function (instance, data) {
+                  if (JSON.parse(data) !== null) {
+                    instance.setState({
+                      userTasks: JSON.parse(data)
+                    });
+                  }
+                });
+
                 _this.setState({
-                  user: JSON.parse(userString)
+                  user: user
                 });
               } else {
                 // Only for development, remove later!
