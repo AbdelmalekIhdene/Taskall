@@ -1,6 +1,7 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 	"path/filepath"
@@ -8,6 +9,7 @@ import (
 	"text/template"
 
 	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
 )
 
 type server struct {
