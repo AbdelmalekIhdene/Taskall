@@ -85,7 +85,7 @@ func (srv *server) AddOrganisation() http.HandlerFunc {
 		}
 		name := r.Form.Get("name")
 		organisation := r.Form.Get("organisation")
-		requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s') ON CONFLICT DO NOTHING;", name, organisation)
+		requestStr := fmt.Sprintf("INSERT INTO organisations(name, organisation) VALUES ('%s', '%s');", name, organisation)
 		log.Println(requestStr)
 		_, err = srv.DB.Query(requestStr)
 		if err != nil {

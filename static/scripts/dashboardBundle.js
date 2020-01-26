@@ -33072,6 +33072,21 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_this), "AJAXRequest", function (reference, method, url, success) {
+      var xhr = new XMLHttpRequest();
+      xhr.open(method, url);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState > 3 && xhr.status == 200) {
+          success(reference, xhr.responseText);
+        }
+      };
+
+      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      xhr.send();
+      return xhr;
+    });
+
     _defineProperty(_assertThisInitialized(_this), "componentDidMount",
     /*#__PURE__*/
     _asyncToGenerator(
@@ -33190,6 +33205,14 @@ function (_React$Component) {
         _this.setState({
           userTasks: userTasks
         });
+
+        var userName = _this.state.user.profileObj.name.replace(" ", "+");
+
+        var organisationName = _this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
+
+        _this.AJAXRequest(_assertThisInitialized(_this), "POST", "https://abdelmalek.ihdene.com/taskall/addOrganisation?name=".concat(userName, "&organisation=").concat(organisationName), function (instance, data) {});
       }
     });
 

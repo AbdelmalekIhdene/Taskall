@@ -57,7 +57,18 @@ class Dashboard extends React.Component {
 			]
 		}
 	}
-
+	AJAXRequest = (reference, method, url, success) => {
+		var xhr = new XMLHttpRequest();
+		xhr.open(method, url);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState > 3 && xhr.status == 200) {
+				success(reference, xhr.responseText);
+			}
+		}
+		xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+		xhr.send();
+		return xhr;
+	}
 	componentDidMount = async() => {
 		const userString = localStorage.getItem("taskall-user-information");
 		const organisationString = localStorage.getItem("taskall-organisation");
@@ -127,6 +138,10 @@ class Dashboard extends React.Component {
 				message: this.state.currentDescription
 			});
 			this.setState({userTasks: userTasks});
+			let userName = this.state.user.profileObj.name.replace(" ", "+");
+			let organisationName = this.state.selectedOrganisation.replace(" ", "+").replace("#", "%23");
+			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/removeOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
+			this.AJAXRequest(this, "POST", `https://abdelmalek.ihdene.com/taskall/addOrganisation?name=${userName}&organisation=${organisationName}`, function(instance, data){});
 		}
 	}
 
