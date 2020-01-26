@@ -128,7 +128,6 @@ class Dashboard extends React.Component {
 												<h1>{this.state.userTasks[this.state.selectedTask].name}</h1>
 												<a><strong>Assigned By:</strong><br></br>{this.state.userTasks[this.state.selectedTask].assignedBy}</a>
 												<a><strong>Details:</strong><br></br>{this.state.userTasks[this.state.selectedTask].message}</a>
-												<a><strong>Details:</strong><br></br>{this.state.userTasks[this.state.selectedTask].message}</a>
 											</section> :
 											<section id="selectedTaskElement">
 												<h1 id="noTaskLabel">No Tasks Currently Selected or Available :)</h1>
