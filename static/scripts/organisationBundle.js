@@ -33147,7 +33147,7 @@ function (_React$Component) {
         var organisationNamesCount = organisationNames.length;
         organisationNames.push({
           id: organisationNamesCount,
-          name: _this.state.currentOrganisationInput
+          organisation: _this.state.currentOrganisationInput
         });
 
         _this.setState({
@@ -33164,7 +33164,7 @@ function (_React$Component) {
       var index = event.target.getAttribute("organisation-id");
       console.log(index);
 
-      if (confirm("Are you sure you would like to delete the organisation ".concat(_this.state.organisationNames[index].name, "?"))) {
+      if (confirm("Are you sure you would like to delete the organisation ".concat(_this.state.organisationNames[index].organisation, "?"))) {
         if (index + 1 === organisationNames.length || organisationNames.length === 1) {
           organisationNames.pop();
         } else {
@@ -33210,7 +33210,7 @@ function (_React$Component) {
           key: organisation.id
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
-        }, _react["default"].createElement("a", null, organisation.name), _react["default"].createElement("i", {
+        }, _react["default"].createElement("a", null, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
           className: "material-icons delete"

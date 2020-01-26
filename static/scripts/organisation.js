@@ -51,7 +51,7 @@ class Organisation extends React.Component {
 			let organisationNamesCount = organisationNames.length;
 			organisationNames.push({
 				id: organisationNamesCount,
-				name: this.state.currentOrganisationInput
+				organisation: this.state.currentOrganisationInput
 			});
 			this.setState({organisationNames: organisationNames});
 		}
@@ -61,7 +61,7 @@ class Organisation extends React.Component {
 		let organisationNames = [...this.state.organisationNames];
 		const index = event.target.getAttribute("organisation-id");
 		console.log(index);
-		if(confirm(`Are you sure you would like to delete the organisation ${this.state.organisationNames[index].name}?`)) {
+		if(confirm(`Are you sure you would like to delete the organisation ${this.state.organisationNames[index].organisation}?`)) {
 			if((index + 1) === organisationNames.length || organisationNames.length === 1) {
 				organisationNames.pop();
 			} else {
@@ -92,7 +92,7 @@ class Organisation extends React.Component {
 										return (
 											<React.Fragment key={organisation.id}>
 												<section id="organisationListElement">
-													<a>{organisation.name}</a>
+													<a>{organisation.organisation}</a>
 													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 												</section>
 												<div id="organisationListDivider"></div>
