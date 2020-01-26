@@ -2,6 +2,7 @@ package main
 
 import (
 	"database/sql"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -74,7 +75,7 @@ func (srv *server) HandleStaticTemplate(paths ...string) http.HandlerFunc {
 // }
 
 type userOrganisationEntry struct {
-	Id			 int 	`json:"id"`
+	Id           int    `json:"id"`
 	Name         string `json:"name"`
 	Organisation string `json:"organisation"`
 }
@@ -109,14 +110,14 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 				return
 			}
 			organisationEntries = append(organisationEntries,
-					userOrganisationEntry{
-						Id:			  i,
-						Name:         name,
-						Organisation: organisation,
-					})
+				userOrganisationEntry{
+					Id:           i,
+					Name:         name,
+					Organisation: organisation,
+				})
 			i += 1
 		}
-		log.Println(json.Marshall(organisationEntries))
+		log.Println(json.Marshal(organisationEntries))
 		w.WriteHeader(http.StatusOK)
 	}
 }
