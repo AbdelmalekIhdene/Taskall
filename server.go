@@ -74,8 +74,9 @@ func (srv *server) HandleStaticTemplate(paths ...string) http.HandlerFunc {
 // }
 
 type userOrganisationEntry struct {
-	Name         string
-	Organisation string
+	Id			 int 	`json:"id"`
+	Name         string `json:"name"`
+	Organisation string `json:"organisation"`
 }
 
 func (srv *server) ShowOrganisations() http.HandlerFunc {
@@ -99,6 +100,7 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 		var organisation string
 		var organisationEntries []userOrganisationEntry
 		defer rows.Close()
+		i := 0
 		for rows.Next() {
 			err := rows.Scan(&organisation)
 			if err != nil {
@@ -106,14 +108,15 @@ func (srv *server) ShowOrganisations() http.HandlerFunc {
 				w.WriteHeader(http.StatusBadRequest)
 				return
 			}
-			organisationEntries =
-				append(organisationEntries,
+			organisationEntries = append(organisationEntries,
 					userOrganisationEntry{
+						Id:			  i,
 						Name:         name,
 						Organisation: organisation,
 					})
+			i += 1
 		}
-		log.Println(organisationEntries)
+		log.Println(json.Marshall(organisationEntries))
 		w.WriteHeader(http.StatusOK)
 	}
 }
