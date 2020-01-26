@@ -81,7 +81,10 @@ class Organisation extends React.Component {
 			this.setState({organisationNames: organisationNames});
 		}
 	}
-
+	handleOrganisationRedirect = (event) => {
+		localStorage.setItem("taskall-organisation", event.target.value);
+		window.location.href = "./dashboard";
+	}
 	render() {
 		return (
 			<React.Fragment>
@@ -100,7 +103,7 @@ class Organisation extends React.Component {
 										return (
 											<React.Fragment key={organisation.id}>
 												<section id="organisationListElement">
-													<a>{organisation.organisation}</a>
+													<a onClick={this.handleOrganisationRedirect}>{organisation.organisation}</a>
 													<i onClick={this.handleOrganisationDelete} organisation-id={organisation.id} className="material-icons delete">delete</i>
 												</section>
 												<div id="organisationListDivider"></div>

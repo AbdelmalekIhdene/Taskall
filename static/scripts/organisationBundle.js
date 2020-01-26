@@ -33196,6 +33196,11 @@ function (_React$Component) {
       }
     });
 
+    _defineProperty(_assertThisInitialized(_this), "handleOrganisationRedirect", function (event) {
+      localStorage.setItem("taskall-organisation", event.target.value);
+      window.location.href = "./dashboard";
+    });
+
     _this.state = {
       user: null,
       currentOrganisationInput: "",
@@ -33225,7 +33230,9 @@ function (_React$Component) {
           key: organisation.id
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
-        }, _react["default"].createElement("a", null, organisation.organisation), _react["default"].createElement("i", {
+        }, _react["default"].createElement("a", {
+          onClick: _this2.handleOrganisationRedirect
+        }, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
           className: "material-icons delete"
