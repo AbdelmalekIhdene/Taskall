@@ -185,6 +185,125 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],2:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactDom = _interopRequireDefault(require("react-dom"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Dashboard =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Dashboard, _React$Component);
+
+  function Dashboard(props) {
+    var _ref;
+
+    var _this;
+
+    _classCallCheck(this, Dashboard);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
+    _this.state = {
+      //user: null,
+      selectedTask: 2,
+      userTasks: [{
+        id: 0,
+        status: "In Progress",
+        name: "Finish dashboard",
+        message: "Finish the layout and interactivity"
+      }, (_ref = {
+        id: 1,
+        status: "Not yet started",
+        name: "Finish SQL"
+      }, _defineProperty(_ref, "status", "In Progress"), _defineProperty(_ref, "message", "Complete the dashboard and connect to front-end"), _ref), {
+        id: 2,
+        status: "In Progress",
+        name: "Finish Login",
+        message: "Have Third-Party authentication working."
+      }, {
+        id: 3,
+        status: "In Progress",
+        name: "Finish Organization Layout",
+        message: "Finish the layout and interactivity."
+      }, {
+        id: 4,
+        status: "Not yet started",
+        name: "Do Challenge",
+        message: "Ensure that we conform to the requrements."
+      }, {
+        id: 5,
+        status: "Not yet started",
+        name: "Test finished product",
+        message: "Ensure it can be demoed."
+      }]
+    };
+    return _this;
+  }
+
+  _createClass(Dashboard, [{
+    key: "render",
+    value: function render() {
+      return _react["default"].createElement(_react["default"].Fragment, null, this.state.user !== null ? _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboard"
+      }, _react["default"].createElement("h1", {
+        id: "pageTitle"
+      }, "Welcome to Your Dashboard"), _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("section", {
+        id: "dashboardBox"
+      }, _react["default"].createElement("section", {
+        id: "dashboardTaskList"
+      }, this.state.userTasks.map(function (task) {
+        return _react["default"].createElement(_react["default"].Fragment, {
+          key: task.id
+        }, _react["default"].createElement("section", {
+          id: "taskListElement"
+        }, _react["default"].createElement("a", null, task.name), _react["default"].createElement("i", {
+          className: "material-icons delete"
+        }, "delete")), _react["default"].createElement("div", {
+          className: "taskListDivider"
+        }));
+      })), _react["default"].createElement("section", {
+        id: "selectedTaskElement"
+      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, "Status: ", this.state.userTasks[this.state.selectedTask].status), _react["default"].createElement("a", null, "Details: ", this.state.userTasks[this.state.selectedTask].message)))))) : _react["default"].createElement(_react["default"].Fragment, null, _react["default"].createElement("h1", null, "Please login before accessing organisation")));
+    }
+  }]);
+
+  return Dashboard;
+}(_react["default"].Component);
+
+var _default = Dashboard;
+exports["default"] = _default;
+
+_reactDom["default"].render(_react["default"].createElement(Dashboard, null), document.getElementById("dashboardContainer"));
+
+},{"react":11,"react-dom":8}],3:[function(require,module,exports){
 /*
 object-assign
 (c) Sindre Sorhus
@@ -276,7 +395,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 	return to;
 };
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
@@ -382,7 +501,7 @@ checkPropTypes.resetWarningCache = function() {
 module.exports = checkPropTypes;
 
 }).call(this,require('_process'))
-},{"./lib/ReactPropTypesSecret":4,"_process":1}],4:[function(require,module,exports){
+},{"./lib/ReactPropTypesSecret":5,"_process":1}],5:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -396,7 +515,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 (function (process){
 /** @license React v16.12.0
  * react-dom.development.js
@@ -28195,7 +28314,7 @@ module.exports = reactDom;
 }
 
 }).call(this,require('_process'))
-},{"_process":1,"object-assign":2,"prop-types/checkPropTypes":3,"react":10,"scheduler":15,"scheduler/tracing":16}],6:[function(require,module,exports){
+},{"_process":1,"object-assign":3,"prop-types/checkPropTypes":4,"react":11,"scheduler":16,"scheduler/tracing":17}],7:[function(require,module,exports){
 /** @license React v16.12.0
  * react-dom.production.min.js
  *
@@ -28487,7 +28606,7 @@ xe,ye,Ca.injectEventPluginsByName,fa,Sc,function(a){ya(a,Rc)},cb,db,Pd,Ba,Sj,{cu
 (function(a){var b=a.findFiberByHostInstance;return ok(n({},a,{overrideHookState:null,overrideProps:null,setSuspenseHandler:null,scheduleUpdate:null,currentDispatcherRef:Ea.ReactCurrentDispatcher,findHostInstanceByFiber:function(a){a=ic(a);return null===a?null:a.stateNode},findFiberByHostInstance:function(a){return b?b(a):null},findHostInstancesForRefresh:null,scheduleRefresh:null,scheduleRoot:null,setRefreshHandler:null,getCurrentFiber:null}))})({findFiberByHostInstance:Fc,bundleType:0,version:"16.12.0",
 rendererPackageName:"react-dom"});var Dk={default:Ck},Ek=Dk&&Ck||Dk;module.exports=Ek.default||Ek;
 
-},{"object-assign":2,"react":10,"scheduler":15}],7:[function(require,module,exports){
+},{"object-assign":3,"react":11,"scheduler":16}],8:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -28529,7 +28648,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react-dom.development.js":5,"./cjs/react-dom.production.min.js":6,"_process":1}],8:[function(require,module,exports){
+},{"./cjs/react-dom.development.js":6,"./cjs/react-dom.production.min.js":7,"_process":1}],9:[function(require,module,exports){
 (function (process){
 /** @license React v16.12.0
  * react.development.js
@@ -30853,7 +30972,7 @@ module.exports = react;
 }
 
 }).call(this,require('_process'))
-},{"_process":1,"object-assign":2,"prop-types/checkPropTypes":3}],9:[function(require,module,exports){
+},{"_process":1,"object-assign":3,"prop-types/checkPropTypes":4}],10:[function(require,module,exports){
 /** @license React v16.12.0
  * react.production.min.js
  *
@@ -30880,7 +30999,7 @@ b,c){return W().useImperativeHandle(a,b,c)},useDebugValue:function(){},useLayout
 if(null!=b){void 0!==b.ref&&(g=b.ref,l=J.current);void 0!==b.key&&(d=""+b.key);if(a.type&&a.type.defaultProps)var f=a.type.defaultProps;for(k in b)K.call(b,k)&&!L.hasOwnProperty(k)&&(e[k]=void 0===b[k]&&void 0!==f?f[k]:b[k])}var k=arguments.length-2;if(1===k)e.children=c;else if(1<k){f=Array(k);for(var m=0;m<k;m++)f[m]=arguments[m+2];e.children=f}return{$$typeof:p,type:a.type,key:d,ref:g,props:e,_owner:l}},createFactory:function(a){var b=M.bind(null,a);b.type=a;return b},isValidElement:N,version:"16.12.0",
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentDispatcher:I,ReactCurrentBatchConfig:{suspense:null},ReactCurrentOwner:J,IsSomeRendererActing:{current:!1},assign:h}},Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
-},{"object-assign":2}],10:[function(require,module,exports){
+},{"object-assign":3}],11:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -30891,7 +31010,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/react.development.js":8,"./cjs/react.production.min.js":9,"_process":1}],11:[function(require,module,exports){
+},{"./cjs/react.development.js":9,"./cjs/react.production.min.js":10,"_process":1}],12:[function(require,module,exports){
 (function (process){
 /** @license React v0.18.0
  * scheduler-tracing.development.js
@@ -31318,7 +31437,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 }
 
 }).call(this,require('_process'))
-},{"_process":1}],12:[function(require,module,exports){
+},{"_process":1}],13:[function(require,module,exports){
 /** @license React v0.18.0
  * scheduler-tracing.production.min.js
  *
@@ -31330,7 +31449,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 (function (process){
 /** @license React v0.18.0
  * scheduler.development.js
@@ -32238,7 +32357,7 @@ exports.unstable_Profiling = unstable_Profiling;
 }
 
 }).call(this,require('_process'))
-},{"_process":1}],14:[function(require,module,exports){
+},{"_process":1}],15:[function(require,module,exports){
 /** @license React v0.18.0
  * scheduler.production.min.js
  *
@@ -32262,7 +32381,7 @@ exports.unstable_scheduleCallback=function(a,b,c){var d=exports.unstable_now();i
 exports.unstable_wrapCallback=function(a){var b=R;return function(){var c=R;R=b;try{return a.apply(this,arguments)}finally{R=c}}};exports.unstable_getCurrentPriorityLevel=function(){return R};exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=L(N);return b!==Q&&null!==Q&&null!==b&&null!==b.callback&&b.startTime<=a&&b.expirationTime<Q.expirationTime||k()};exports.unstable_requestPaint=Z;exports.unstable_continueExecution=function(){T||S||(T=!0,f(X))};
 exports.unstable_pauseExecution=function(){};exports.unstable_getFirstCallbackNode=function(){return L(N)};exports.unstable_Profiling=null;
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -32273,7 +32392,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/scheduler.development.js":13,"./cjs/scheduler.production.min.js":14,"_process":1}],16:[function(require,module,exports){
+},{"./cjs/scheduler.development.js":14,"./cjs/scheduler.production.min.js":15,"_process":1}],17:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -32284,62 +32403,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 }).call(this,require('_process'))
-},{"./cjs/scheduler-tracing.development.js":11,"./cjs/scheduler-tracing.production.min.js":12,"_process":1}],17:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _reactDom = _interopRequireDefault(require("react-dom"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var Dashboard =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(Dashboard, _React$Component);
-
-  function Dashboard(props) {
-    _classCallCheck(this, Dashboard);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
-  }
-
-  _createClass(Dashboard, [{
-    key: "render",
-    value: function render() {
-      return _react["default"].createElement("h1", null, "Hello, Dashboard!");
-    }
-  }]);
-
-  return Dashboard;
-}(_react["default"].Component);
-
-var _default = Dashboard;
-exports["default"] = _default;
-
-_reactDom["default"].render(_react["default"].createElement(Dashboard, null), document.getElementById("dashboardContainer"));
-
-},{"react":10,"react-dom":7}]},{},[17]);
+},{"./cjs/scheduler-tracing.development.js":12,"./cjs/scheduler-tracing.production.min.js":13,"_process":1}]},{},[2]);

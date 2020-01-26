@@ -1,3 +1,81 @@
+html, body {
+	height: 100%;
+}
+
 #dashboardContainer {
-	color: red;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#dashboard {
+	display: block;
+	justify-content: center;
+	margin: 30px;
+	margin-top: 0;
+}
+
+#pageTitle {
+	float: top;
+	text-align: left;
+	padding-bottom: 20px;
+	font-size: 24px;
+}
+
+#dashboardBox {
+	display: flex;
+	text-align: center;
+	border: solid black 2px;
+}
+
+#dashboardBox h1 {
+	padding-bottom: 20px;
+	font-size: 24px;
+}
+
+/*#dashboardNavBar {
+	
+}
+
+#dashboardNavBar li a {
+	text-decoration: none;
+}*/
+
+#dashboardTaskList {
+	border: solid black 2px;
+}
+
+#taskListElement {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 23px;
+	margin-bottom: 23px;
+	padding: 5px 20px;
+}
+
+#taskListElement a {
+	flex: 1;
+	text-align: left;
+	padding: 5px;
+}
+
+#taskListElement i {
+	display: inline;
+	padding-left: 50px;
+}
+
+.taskListDivider {
+	width: 100%;
+	height: 1px;
+	background: rgba(150, 150, 150, 1);
+}
+
+#selectedTaskElement {
+	display: flex;
+	flex-direction: column;
+	justify-content: top;
+	text-align: left;
+	padding: 20px;
+	border: solid black 2px;
 }
