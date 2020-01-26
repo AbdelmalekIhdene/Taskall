@@ -242,7 +242,7 @@ func (srv *server) ShowTasks() http.HandlerFunc {
 		}
 		assignee := r.Form.Get("assignee")
 		log.Println(assignee)
-		requestStr := fmt.Sprintf("SELECT username, organisation, taskname, description FROM organisations WHERE assignee = '%s';", assignee)
+		requestStr := fmt.Sprintf("SELECT username, organisation, taskname, description FROM tasks WHERE assignee = '%s';", assignee)
 		log.Println(requestStr)
 		rows, err := srv.DB.Query(requestStr)
 		if err != nil {
