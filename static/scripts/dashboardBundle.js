@@ -33174,6 +33174,23 @@ function (_React$Component) {
       console.log(_this.state.currentTaskName);
       console.log(_this.state.currentAssignee);
       console.log(_this.state.currentDescription);
+
+      if (_this.state.currentAssignee === _this.state.user.profileObj.name) {
+        var userTasks = _toConsumableArray(_this.state.userTasks);
+
+        var userTasksCount = userTasks.length;
+        userTasks.push({
+          id: userTasksCount,
+          assignedBy: _this.state.user.profileObj.name,
+          assignedTo: _this.state.currentAssignee,
+          name: _this.state.currentTaskName,
+          message: _this.state.currentDescription
+        });
+
+        _this.setState({
+          userTasks: userTasks
+        });
+      }
     });
 
     _this.state = {
@@ -33183,43 +33200,49 @@ function (_React$Component) {
       currentAssignee: "",
       currentDescription: "",
       selectedTask: 0,
-      userTasks: [{
-        id: 0,
-        assignedTo: "Mark",
-        assignedBy: "Mark",
-        name: "Finish dashboard",
-        message: "Finish the layout and interactivity"
-      }, {
-        id: 1,
-        assignedTo: "Mark",
-        assignedBy: "Quinn",
-        name: "Finish SQL",
-        message: "Complete the dashboard and connect to front-end"
-      }, {
-        id: 2,
-        assignedTo: "Mark",
-        assignedBy: "Joseph",
-        name: "Finish Login",
-        message: "Have Third-Party authentication working."
-      }, {
-        id: 3,
-        assignedTo: "Mark",
-        assignedBy: "Joseph",
-        name: "Finish Organization Layout",
-        message: "Finish the layout and interactivity."
-      }, {
-        id: 4,
-        assignedTo: "Mark",
-        assignedBy: "Dan",
-        name: "Do Challenge",
-        message: "Ensure that we conform to the requrements."
-      }, {
-        id: 5,
-        assignedTo: "Mark",
-        assignedBy: "Mark",
-        name: "Test finished product",
-        message: "Ensure it can be demoed."
-      }]
+      userTasks: [// {
+        // 	id: 0,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Mark",
+        // 	name: "Finish dashboard",
+        // 	message: "Finish the layout and interactivity",
+        // },
+        // {
+        // 	id: 1,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Quinn",
+        // 	name: "Finish SQL",
+        // 	message: "Complete the dashboard and connect to front-end",
+        // },
+        // {
+        // 	id: 2,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Joseph",
+        // 	name: "Finish Login",
+        // 	message: "Have Third-Party authentication working.",
+        // },
+        // {
+        // 	id: 3,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Joseph",
+        // 	name: "Finish Organization Layout",
+        // 	message: "Finish the layout and interactivity.",
+        // },
+        // {
+        // 	id: 4,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Dan",
+        // 	name: "Do Challenge",
+        // 	message: "Ensure that we conform to the requrements.",
+        // },
+        // {
+        // 	id: 5,
+        // 	assignedTo: "Mark",
+        // 	assignedBy: "Mark",
+        // 	name: "Test finished product",
+        // 	message: "Ensure it can be demoed.",
+        // }
+      ]
     };
     return _this;
   }
@@ -33254,7 +33277,7 @@ function (_React$Component) {
         }));
       })), this.state.userTasks.length > 0 ? _react["default"].createElement("section", {
         id: "selectedTaskElement"
-      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Assigned By:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Details:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].message)) : _react["default"].createElement("section", {
+      }, _react["default"].createElement("h1", null, this.state.userTasks[this.state.selectedTask].name), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Assigned By:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].assignedBy), _react["default"].createElement("a", null, _react["default"].createElement("strong", null, "Description:"), _react["default"].createElement("br", null), this.state.userTasks[this.state.selectedTask].message)) : _react["default"].createElement("section", {
         id: "selectedTaskElement"
       }, _react["default"].createElement("h1", {
         id: "noTaskLabel"
