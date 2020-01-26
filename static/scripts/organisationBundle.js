@@ -33234,6 +33234,7 @@ function (_React$Component) {
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
         }, _react["default"].createElement("a", {
+          key: organisation.id,
           onClick: _this2.handleOrganisationRedirect
         }, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
