@@ -18,7 +18,6 @@ class Dashboard extends React.Component {
 					id: 1,
 					assignedBy: "Quinn",
 					name: "Finish SQL",
-					status: "In Progress",
 					message: "Complete the dashboard and connect to front-end",
 				},
 				{
@@ -49,8 +48,16 @@ class Dashboard extends React.Component {
 		}
 	}
 
+	handleTaskClick = (event) => {
+		console.log("Clicked a task");
+		let userTasks = [...this.state.userTasks];
+		this.state.selectedTask = event.target.getAttribute("task-id");
+		console.log("Selected Task: " + this.state.selectedTask);
+		this.setState({userTasks: userTasks});			
+	}
+
 	handleTaskDelete = (event) => {
-		console.log("Hello, World!");
+		console.log("Clicked delete");
 		let userTasks = [...this.state.userTasks];
 		const index = event.target.getAttribute("task-id");
 		console.log(index);
@@ -90,7 +97,7 @@ class Dashboard extends React.Component {
 											{ this.state.userTasks.map(task => { return (
 											<React.Fragment key={task.id}>
 												<section id="taskListElement">
-													<a onClick={this.handleTaskClick} task-name={task.name}>{task.name}</a>
+													<a onClick={this.handleTaskClick} task-id={task.id}>{task.name}</a>
 													<i onClick={this.handleTaskDelete} task-id={task.id} className="material-icons delete">delete</i>
 												</section>
 												<div className="taskListDivider"></div>

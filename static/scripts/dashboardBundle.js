@@ -238,8 +238,21 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Dashboard).call(this, props));
 
+    _defineProperty(_assertThisInitialized(_this), "handleTaskClick", function (event) {
+      console.log("Clicked a task");
+
+      var userTasks = _toConsumableArray(_this.state.userTasks);
+
+      _this.state.selectedTask = event.target.getAttribute("task-id");
+      console.log("Selected Task: " + _this.state.selectedTask);
+
+      _this.setState({
+        userTasks: userTasks
+      });
+    });
+
     _defineProperty(_assertThisInitialized(_this), "handleTaskDelete", function (event) {
-      console.log("Hello, World!");
+      console.log("Clicked delete");
 
       var userTasks = _toConsumableArray(_this.state.userTasks);
 
@@ -276,7 +289,6 @@ function (_React$Component) {
         id: 1,
         assignedBy: "Quinn",
         name: "Finish SQL",
-        status: "In Progress",
         message: "Complete the dashboard and connect to front-end"
       }, {
         id: 2,
@@ -323,7 +335,7 @@ function (_React$Component) {
           id: "taskListElement"
         }, _react["default"].createElement("a", {
           onClick: _this2.handleTaskClick,
-          "task-name": task.name
+          "task-id": task.id
         }, task.name), _react["default"].createElement("i", {
           onClick: _this2.handleTaskDelete,
           "task-id": task.id,

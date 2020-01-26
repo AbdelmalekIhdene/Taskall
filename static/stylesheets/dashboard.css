@@ -101,13 +101,13 @@ html, body {
 	flex-direction: column;
 	justify-content: top;
 	text-align: left;
+	width: 450px;
 	padding: 20px;
 	border-bottom-right-radius: 0.35em;
 	border-bottom-left-radius: 0.35em;
 	border-left: rgb(75, 75, 75);
 	border-left-width: 2px;
 	border: gray;
-	
 }
 
 #taskListDivider:last-child {
