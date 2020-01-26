@@ -33206,6 +33206,9 @@ function (_React$Component) {
       currentOrganisationInput: "",
       organisationNames: []
     };
+
+    _this.handleOrganisationRedirect.bind(_assertThisInitialized(_this));
+
     return _this;
   }
 
@@ -33233,8 +33236,7 @@ function (_React$Component) {
         }, _react["default"].createElement("section", {
           id: "organisationListElement"
         }, _react["default"].createElement("a", {
-          onClick: _this2.handleOrganisationRedirect,
-          onChange: _this2.handleOrganisationRedirect.bind(_this2)
+          onClick: _this2.handleOrganisationRedirect
         }, organisation.organisation), _react["default"].createElement("i", {
           onClick: _this2.handleOrganisationDelete,
           "organisation-id": organisation.id,
